@@ -1,69 +1,95 @@
 "use client";
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Widget() {
-  const [checkInCode, setCheckInCode] = useState('');
+  const [checkInCode, setCheckInCode] = useState("");
 
   const handleNumberClick = (number) => {
-    setCheckInCode((prevCode) => prevCode + number);
-  };
-
-  const handleCheckIn = () => {
-    // Handle check-in logic here
-    console.log('Check-in code:', checkInCode);
-    setCheckInCode('');
+    if (number === "✖️") {
+      setCheckInCode((prev) => prev.slice(0, -1)); // Remove last digit
+    } else if (number === "✔️") {
+      console.log("Check-in code:", checkInCode); // Handle check-in
+      setCheckInCode(""); // Clear input
+    } else {
+      setCheckInCode((prev) => prev + number);
+    }
   };
 
   return (
-    <div className="flex justify-between p-6 bg-gradient-to-b from-blue-500 to-blue-700 text-white h-screen">
-      {/* Today's Sessions Section */}
-      <div className="w-1/3 p-4 bg-white rounded-lg shadow-md text-gray-800">
-        <h2 className="text-lg font-semibold mb-4">Today's Sessions</h2>
-        <p className="text-gray-500 mb-4">No upcoming sessions</p>
-      
-        <button className="w-full bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-          Add Session
-        </button>
-      </div>
-
-      {/* Check-In Section */}
-      <div className="flex flex-col items-center justify-center w-1/3 p-4">
-        <h1 className="text-2xl font-bold mb-4">Check-In</h1>
-        <div className="mb-4">
-          <input
-            type="text"
-            placeholder="Enter Check-in code"
-            value={checkInCode}
-            readOnly
-            className="p-2 rounded-lg bg-white text-black w-full text-center"
-          />
-        </div>
-        <div className="grid grid-cols-3 gap-4 mb-4">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, '✖️', 0, '✔️'].map((number) => (
-            <button
-              key={number}
-              className="bg-zinc-200 rounded-lg p-4 text-gray-800 hover:bg-zinc-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              onClick={() => handleNumberClick(number)}
-            >
-              {number}
+    <div className=" flex justify-center items-center ">
+      <div className="container mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Today's Sessions */}
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <h2 className="text-lg font-semibold mb-4">Today's Sessions</h2>
+            <p className="text-gray-500 mb-4">No upcoming sessions</p>
+            <button className="bg-teal-600 text-white py-2 px-4 rounded-full w-full">
+              Add Session
             </button>
-          ))}
-        </div>
-        <button
-          className="bg-green-500 text-white p-2 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
-          onClick={handleCheckIn}
-        >
-          Check In →
-        </button>
-      </div>
+          </div>
 
-      {/* Recent Check-ins Section */}
-      <div className="w-1/3 p-4 bg-white rounded-lg shadow-md text-gray-800">
-        <h2 className="text-lg font-semibold mb-4">Recent Check-ins</h2>
-        <p className="text-gray-500 mb-4">No check-ins yet today</p>
-        <button className="w-full bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-          Check In →
-        </button>
+          {/* Check-In Section */}
+          <div className="bg-gradient-to-b from-teal-600 to-teal-800 p-6 rounded-lg shadow-md text-center">
+            <div className="flex justify-center mb-4">
+              <button className="text-white font-semibold mx-2">
+                Enter Code
+              </button>
+              <button className="text-white font-semibold mx-2">
+                Name Search
+              </button>
+            </div>
+            <h2 className="text-2xl text-white font-semibold mb-4">Check-In</h2>
+
+            {/* Input Field */}
+            <div className="bg-teal-500 rounded-full py-2 px-4 mb-4">
+              <input
+                type="text"
+                value={checkInCode}
+                readOnly
+                placeholder="Enter Check-in code"
+                className="bg-transparent text-white text-center w-full focus:outline-none"
+              />
+            </div>
+
+            {/* Number Pad */}
+            <div className="grid grid-cols-3 gap-4 mb-4">
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, "✖️", 0, "✔️"].map((number) => (
+                <button
+                  key={number}
+                  className="bg-teal-500 text-white py-4 rounded-full hover:bg-teal-600"
+                  onClick={() => handleNumberClick(number)}
+                >
+                  {typeof number === "string" ? (
+                    <i
+                      className={`fas ${
+                        number === "✖️" ? "fa-times" : "fa-check"
+                      }`}
+                    ></i>
+                  ) : (
+                    number
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {/* Check-In Button */}
+            <button
+              className="bg-green-500 text-white py-2 px-4 rounded-full w-full"
+              onClick={() => console.log("Final Check-in Code:", checkInCode)}
+            >
+              Check In <i className="fas fa-arrow-right"></i>
+            </button>
+          </div>
+
+          {/* Recent Check-ins */}
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <h2 className="text-lg font-semibold mb-4">Recent Check-ins</h2>
+            <p className="text-gray-500 mb-4">No check-ins yet today</p>
+            <button className="bg-teal-600 text-white py-2 px-4 rounded-full w-full">
+              Check In <i className="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

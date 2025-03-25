@@ -67,7 +67,7 @@ const EnhancedMembersTable = () => {
               key={tab}
               className={`py-4 px-1 text-sm font-medium border-b-2 ${
                 activeTab === tab 
-                  ? 'border-blue-500 text-blue-600' 
+                  ? 'border-[var(--primary-color)] text-[var(--primary-color)]' 
                   : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
               }`}
               onClick={() => setActiveTab(tab)}
@@ -90,7 +90,7 @@ const EnhancedMembersTable = () => {
           <button className="p-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
             <Download className="h-5 w-5 text-gray-500" />
           </button>
-          <button className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+          <button className="flex items-center px-4 py-2 bg-[var(--primary-color)] text-white rounded-lg hover:bg-[var(--primary-color)]">
             <UserPlus className="h-4 w-4 mr-2" />
             Add Member
           </button>
@@ -100,7 +100,7 @@ const EnhancedMembersTable = () => {
             <input
               type="text"
               placeholder="Search"
-              className="pl-4 pr-10 py-2 border border-gray-300 rounded-full w-64 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="pl-4 pr-10 py-2 border border-gray-300 rounded-full w-64 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)]"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -119,7 +119,7 @@ const EnhancedMembersTable = () => {
               <th scope="col" className="px-6 py-3 text-left">
                 <input
                   type="checkbox"
-                  className="h-4 w-4 text-blue-600 border-gray-300 rounded"
+                  className="h-4 w-4 text-[var(--primary-color)] border-gray-300 rounded"
                   checked={selectedRows.length === currentMembers.length && currentMembers.length > 0}
                   onChange={toggleSelectAll}
                 />
@@ -159,7 +159,7 @@ const EnhancedMembersTable = () => {
                 <td className="px-6 py-4 whitespace-nowrap">
                   <input
                     type="checkbox"
-                    className="h-4 w-4 text-blue-600 border-gray-300 rounded"
+                    className="h-4 w-4 text-[var(--primary-color)] border-gray-300 rounded"
                     checked={selectedRows.includes(member.id)}
                     onChange={() => toggleSelectRow(member.id)}
                   />
@@ -173,7 +173,7 @@ const EnhancedMembersTable = () => {
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   {member.contact}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-blue-600">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-[var(--primary-color)]">
                   {member.email}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -186,7 +186,7 @@ const EnhancedMembersTable = () => {
                   {member.residence}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <button className="text-blue-600 hover:text-blue-800">
+                  <button className="text-[var(--primary-color)] hover:text-[var(--primary-color)]">
                     <MoreHorizontal className="h-5 w-5" />
                   </button>
                 </td>
@@ -224,7 +224,7 @@ const EnhancedMembersTable = () => {
                       onClick={() => paginate(page + 1)}
                       className={`relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium ${
                         currentPage === page + 1
-                          ? 'text-blue-600 bg-blue-50'
+                          ? 'text-[var(--primary-color)] bg-blue-50'
                           : 'text-gray-700 hover:bg-gray-50'
                       }`}
                     >

@@ -50,7 +50,7 @@ const MembersTab = ({ members, selectedRows, toggleSelectAll, toggleSelectRow })
                 <td className="px-6 py-4 whitespace-nowrap">
                   <input
                     type="checkbox"
-                    className="h-4 w-4 text-blue-600 border-gray-300 rounded"
+                    className="h-4 w-4 text-[var(--primary-color)] border-gray-300 rounded"
                     checked={selectedRows.includes(member.id)}
                     onChange={() => toggleSelectRow(member.id)}
                   />
@@ -64,7 +64,7 @@ const MembersTab = ({ members, selectedRows, toggleSelectAll, toggleSelectRow })
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   {member.contact}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-blue-600">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-[var(--primary-color)]">
                   {member.email}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -77,7 +77,7 @@ const MembersTab = ({ members, selectedRows, toggleSelectAll, toggleSelectRow })
                   {member.residence}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  <button className="text-blue-600 hover:text-blue-800">
+                  <button className="text-[var(--primary-color)] hover:text-blue-800">
                     <MoreHorizontal className="h-5 w-5" />
                   </button>
                 </td>

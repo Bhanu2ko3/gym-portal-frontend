@@ -17,7 +17,7 @@ const DashboardHeader = ({ onSearch, searchQuery: propSearchQuery }) => {
   return (
     <div className="w-full bg-gray-50 px-6 py-4 flex items-center shadow-sm">
       <h1 className="text-xl font-semibold text-[var(--primary-color)]">
-        Dashboard
+      {searchQuery}
       </h1>
 
       <div className="flex justify-center items-center w-full absolute top-0 left-0 h-16">
