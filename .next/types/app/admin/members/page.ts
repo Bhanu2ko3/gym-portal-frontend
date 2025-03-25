@@ -1,4 +1,4 @@
-// File: C:\Users\LENOVO LOQ\Desktop\gym-dashboard-master\app\admin\members\page.js
+// File: D:\MY WORK\Self_Study\NEXT projects\gym-portal-frontend\app\admin\members\page.js
 import * as entry from '../../../../../app/admin/members/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
