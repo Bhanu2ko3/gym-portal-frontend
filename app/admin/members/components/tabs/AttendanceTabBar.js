@@ -3,7 +3,7 @@ import { useState } from "react";
 import OverviewTab from "./subTabs/OverviewTab";
 import CheckInsTab from "./subTabs/CheckInsTab";
 import PromotionsTab from "./subTabs/PromotionsTab";
-import MembersTab from "./subTabs/MembersTab";
+import MembersTab from "./MembersTab";
 import SessionsTab from "./subTabs/SessionsTab";
 import MultipleCheckInTab from "./subTabs/MultipleCheckInTab";
 import SettingsTab from "./subTabs/SettingsTab";

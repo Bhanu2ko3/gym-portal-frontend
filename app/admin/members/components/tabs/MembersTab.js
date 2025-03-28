@@ -1,18 +1,26 @@
 "use client";
 import { Search, MoreHorizontal, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const MembersTab = ({
-  members,
-  selectedRows,
+  members = [], // Default to empty array if not passed
+  selectedRows = [],
   toggleSelectAll,
   toggleSelectRow,
 }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Ensure filtered members are updated when searchQuery or members change
   const filteredMembers = members.filter((member) =>
     member.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  useEffect(() => {
+    // Handle case when members might be initially empty or undefined
+    if (!Array.isArray(members)) {
+      console.error("Invalid members prop, expected an array");
+    }
+  }, [members]);
 
   return (
     <div className="bg-white rounded-lg shadow overflow-hidden">
@@ -36,10 +44,10 @@ const MembersTab = ({
       </div>
 
       {/* Table Section */}
-      <table className="min-w-full divide-y divide-gray-200 ">
-        <thead className=" border-b-2 border-[var(--primary-color)]">
+      <table className="min-w-full divide-y divide-gray-200">
+        <thead className="border-b-2 border-[var(--primary-color)]">
           <tr>
-            <th scope="col" className="px-6 py-3 text-left ">
+            <th scope="col" className="px-6 py-3 text-left">
               <input
                 type="checkbox"
                 className="h-4 w-4 text-[var(--primary-color)] border-gray-300 rounded"
@@ -100,47 +108,55 @@ const MembersTab = ({
             </th>
           </tr>
         </thead>
-        <tbody className="bg-white divide-y divide-gray-200 ">
-          {filteredMembers.map((member, index) => (
-            <tr key={index} className="hover:bg-gray-50">
-              <td className="px-6 py-4 whitespace-nowrap">
-                <input
-                  type="checkbox"
-                  className="h-4 w-4 text-[var(--primary-color)] border-gray-300 rounded"
-                  checked={selectedRows.includes(member.id)}
-                  onChange={() => toggleSelectRow(member.id)}
-                />
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {member.id}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="text-sm font-medium text-gray-900">
-                  {member.name}
-                </div>
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {member.contact}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-[var(--primary-color)]">
-                {member.email}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {member.age}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {member.gender}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {member.residence}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                <button className="text-[var(--primary-color)] hover:text-[var(--primary-color)]">
-                  <MoreHorizontal className="h-5 w-5" />
-                </button>
+        <tbody className="bg-white divide-y divide-gray-200">
+          {filteredMembers.length === 0 ? (
+            <tr>
+              <td colSpan="9" className="text-center py-4 text-gray-500">
+                No members found.
               </td>
             </tr>
-          ))}
+          ) : (
+            filteredMembers.map((member) => (
+              <tr key={member.id} className="hover:bg-gray-50">
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <input
+                    type="checkbox"
+                    className="h-4 w-4 text-[var(--primary-color)] border-gray-300 rounded"
+                    checked={selectedRows.includes(member.id)}
+                    onChange={() => toggleSelectRow(member.id)}
+                  />
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {member.id}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <div className="text-sm font-medium text-gray-900">
+                    {member.name}
+                  </div>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {member.contact}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-[var(--primary-color)]">
+                  {member.email}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {member.age}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {member.gender}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {member.residence}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <button className="text-[var(--primary-color)] hover:text-[var(--primary-color)]">
+                    <MoreHorizontal className="h-5 w-5" />
+                  </button>
+                </td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
     </div>

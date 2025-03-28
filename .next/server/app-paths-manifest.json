@@ -1,7 +1,8 @@
 {
-  "/admin/members/page": "app/admin/members/page.js",
-  "/admin/marketing/page": "app/admin/marketing/page.js",
+  "/admin/gym/page": "app/admin/gym/page.js",
+  "/admin/frontdesk/page": "app/admin/frontdesk/page.js",
+  "/admin/settings/page": "app/admin/settings/page.js",
   "/admin/billing/page": "app/admin/billing/page.js",
-  "/admin/sales/page": "app/admin/sales/page.js",
-  "/admin/gym/page": "app/admin/gym/page.js"
+  "/admin/marketing/page": "app/admin/marketing/page.js",
+  "/admin/sales/page": "app/admin/sales/page.js"
 }

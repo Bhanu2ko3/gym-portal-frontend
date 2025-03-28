@@ -1,0 +1,86 @@
+"use client";
+import { useState } from "react";
+import GymTab from "./tabs/gymTab";
+import BookingTab from "./tabs/bookingTab";
+import MemberTab from "./tabs/memberTab";
+import AttendanceTab from "./tabs/attendanceTab";
+import MarketingTab from "./tabs/marketingTab";
+import BillingTab from "./tabs/billingTab";
+import SaleTab from "./tabs/saleTab";
+import EmailTab from "./tabs/emailTab";
+import IntegrationTab from "./tabs/integrationTab";
+
+const SideTabBar = () => {
+  const [activeTab, setActiveTab] = useState("GYM");
+
+  const tabs = [
+    "GYM",
+    "Booking",
+    "Member",
+    "Attendance",
+    "Marketing",
+    "Billing",
+    "Sale",
+    "Email",
+    "Integration",
+  ];
+
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case "GYM":
+        return <GymTab />;
+      case "Booking":
+        return <BookingTab />;
+      case "Member":
+        return <MemberTab />;
+      case "Attendance":
+        return <AttendanceTab />;
+      case "Marketing":
+        return <MarketingTab />;
+      case "Billing":
+        return <BillingTab />;
+      case "Sale":
+        return <SaleTab />;
+      case "Email":
+        return <EmailTab />;
+      case "Integration":
+        return <IntegrationTab />;
+      default:
+        return <div>Select a valid tab</div>;
+    }
+  };
+
+  return (
+    <div className="flex h-screen">
+      {/* Sidebar */}
+      <div className="w-64 bg-gradient-to-b from-blue-900 to-blue-700 text-white">
+        <ul className="space-y-4 p-4">
+          {tabs.map((tab) => (
+            <li key={tab} className="flex justify-between items-center">
+              <button
+                className={`flex justify-between items-center w-full hover:bg-blue-800 p-2 rounded-lg ${
+                  activeTab === tab ? "bg-blue-800" : ""
+                }`}
+                onClick={() => setActiveTab(tab)}
+              >
+                <span>{tab}</span>
+                <i
+                  className={`fas fa-chevron-down ${
+                    activeTab === tab ? "transform rotate-180" : ""
+                  }`}
+                ></i>
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Tab Content */}
+      <div className="flex-1 overflow-auto mt-4 p-6">
+        <div className="w-full h-full">{renderTabContent()}</div>
+      </div>
+    </div>
+  );
+};
+
+export default SideTabBar;

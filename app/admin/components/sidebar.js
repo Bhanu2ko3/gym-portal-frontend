@@ -27,7 +27,7 @@ const Sidebar = ({ onItemClick }) => {
     frontDesk: false,
   });
 
-  const [selectedItem, setSelectedItem] = useState("Dashboard"); // Track the selected item
+  const [selectedItem, setSelectedItem] = useState("Dashboard"); 
 
   const toggleExpand = (item) => {
     setExpandedItems({
@@ -81,7 +81,7 @@ const Sidebar = ({ onItemClick }) => {
     },
     {
       name: "Front Desk",
-      link: "/admin/frontDesk",
+      link: "/admin/frontdesk",
       icon: <Monitor size={20} />,
       expandable: true,
     },
