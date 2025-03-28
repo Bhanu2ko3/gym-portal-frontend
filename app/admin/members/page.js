@@ -1,5 +1,5 @@
 // pages/admin/members.js
-import Sidebar from './components/Sidebar';
+import Sidebar from './components/tabBar';
 import MembersTable from './components/MembersTable';
 
 export default function MembersPage() {
