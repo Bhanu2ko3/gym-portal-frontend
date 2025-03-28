@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import Sidebar from './components/sidebar';
-import DashboardHeader from './components/DashboardHeader';
+import DashboardHeader from './components/Header';
 
 export default function Layout({ children }) {
   const [searchQuery, setSearchQuery] = useState('');

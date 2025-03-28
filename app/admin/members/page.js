@@ -1,7 +1,9 @@
-import MembersTable from './components/membersTabBar';
+import MembersTable from "./components/MembersTabBar";
 
 export default function MembersPage() {
   return (
-    <MembersTable />
+    <div className="bg-[var(--tertiary-color)]">
+      <MembersTable />
+    </div>
   );
 }

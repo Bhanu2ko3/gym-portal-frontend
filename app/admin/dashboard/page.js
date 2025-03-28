@@ -13,9 +13,9 @@ export default function Dashboard() {
   const notifications = [];
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen bg-[var(--tertiary-color)]">
       <div className="flex-1 flex flex-col overflow-hidden">
-        <main className="flex-1 overflow-auto bg-gray-50">
+        <main className="flex-1 overflow-auto bg-[var(--tertiary-color)]">
           <div className="py-6 px-4 sm:px-6 lg:px-8">
             {/* Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
@@ -47,7 +47,7 @@ export default function Dashboard() {
       </div>
 
       {/* Notifications Panel */}
-      <div className="lg:block hidden w-64 bg-white h-screen mt-6 shadow-md">
+      <div className="lg:block w-64 bg-white mt-6 shadow-md rounded-lg">
         <div className="p-4 border-b border-gray-200">
           <h2 className="font-medium">Notifications</h2>
         </div>

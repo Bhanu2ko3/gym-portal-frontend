@@ -1,8 +1,9 @@
 import React from 'react'
+import AttendanceTabBar from './AttendanceTabBar'
 
 const AttendanceTab = () => {
   return (
-    <div>AttendanceTab</div>
+    <AttendanceTabBar/>
   )
 }
 
