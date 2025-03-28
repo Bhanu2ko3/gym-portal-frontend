@@ -1,14 +1,14 @@
 "use client";
 import { useState } from "react";
-import GymTab from "./tabs/gymTab";
-import BookingTab from "./tabs/bookingTab";
-import MemberTab from "./tabs/memberTab";
-import AttendanceTab from "./tabs/attendanceTab";
-import MarketingTab from "./tabs/marketingTab";
-import BillingTab from "./tabs/billingTab";
-import SaleTab from "./tabs/saleTab";
-import EmailTab from "./tabs/emailTab";
-import IntegrationTab from "./tabs/integrationTab";
+import GymTab from "./tabs/gymSettingTab";
+import BookingTab from "./tabs/bookingSettingTab";
+import MemberTab from "./tabs/memberSettingTab";
+import AttendanceTab from "./tabs/attendanceSettingTab";
+import MarketingTab from "./tabs/marketingSettingTab";
+import BillingTab from "./tabs/billingSettingTab";
+import SaleTab from "./tabs/saleSettingTab";
+import EmailTab from "./tabs/emailSettingTab";
+import IntegrationTab from "./tabs/integrationSettingTab";
 
 const SideTabBar = () => {
   const [activeTab, setActiveTab] = useState("GYM");
