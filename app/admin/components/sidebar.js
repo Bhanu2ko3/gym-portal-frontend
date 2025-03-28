@@ -39,7 +39,7 @@ const Sidebar = ({ onItemClick }) => {
   const menuItems = [
     {
       name: "Dashboard",
-      link: "/admin",
+      link: "/admin/dashboard",
       icon: <LayoutDashboard size={20} />,
       expandable: true,
     },
