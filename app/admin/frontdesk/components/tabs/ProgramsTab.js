@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "../../../components/Button";
 
 const MemberDetails = () => {
   const [memberType, setMemberType] = useState("Member");
@@ -26,16 +27,9 @@ const MemberDetails = () => {
   };
 
   return (
-    <div className="bg-gray-100 p-4">
-      {/* Header */}
-      <div className="flex justify-between items-center mb-4">
-        <div className="text-lg font-semibold">Programs</div>
-        <button className="text-blue-600">Log Out</button>
-      </div>
-
-      {/* Member Details */}
-      <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-        <h2 className="text-xl font-semibold mb-2">Member Details</h2>
+    <div className="mt-4 rounded-lg">
+      <div className="pt-4 bg-white shadow-md rounded-lg p-6">
+        <h2 className="text-xl font-medium mb-4 pb-4">Member Details</h2>
         <div className="flex items-center mb-4">
           <label className="mr-4">
             <input
@@ -59,45 +53,82 @@ const MemberDetails = () => {
             />
             Member
           </label>
+          <Button
+            text="Find Me"
+            className={"ml-185"}
+            onClick={() => console.log("Clicked!")}
+          />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {["firstName", "lastName", "phoneNumber", "email", "secondaryPhone", "secondaryEmail", "gender", "dob"].map((field, index) => (
-            <div key={index}>
-              <label className="block text-gray-700 capitalize">{field.replace(/([A-Z])/g, " $1")}</label>
-              {field === "gender" ? (
-                <select name={field} value={formData[field]} onChange={handleChange} className="w-full p-2 border rounded">
-                  <option>Select</option>
-                  <option>Male</option>
-                  <option>Female</option>
-                </select>
-              ) : (
-                <input
-                  type={field === "dob" ? "date" : "text"}
-                  name={field}
-                  value={formData[field]}
-                  onChange={handleChange}
-                  className="w-full p-2 border rounded"
-                />
-              )}
-            </div>
-          ))}
-        </div>
-        <button className="mt-4 bg-blue-600 text-white py-2 px-4 rounded">Find Me</button>
+
+        <form className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              "firstName",
+              "lastName",
+              "phoneNumber",
+              "email",
+              "secondaryPhone",
+              "secondaryEmail",
+              "gender",
+              "dob",
+              "pickACheckInCode",
+              "joinDate",
+            ].map((field, index) => (
+              <div key={index}>
+                <label className="block text-gray-700 capitalize">
+                  {field.replace(/([A-Z])/g, " $1")}
+                </label>
+                {field === "gender" ? (
+                  <select
+                    name={field}
+                    value={formData[field]}
+                    onChange={handleChange}
+                    className="mt-1 block w-full border border-[var(--quaternary-color)] rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-[var(--quaternary-color)] focus:border-transparent"
+                  >
+                    <option>Select</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                  </select>
+                ) : field === "joinDate" ? (
+                  <input
+                    type="date"
+                    name={field}
+                    value={formData[field]}
+                    onChange={handleChange}
+                    className="mt-1 block w-full border border-[var(--quaternary-color)] rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-[var(--quaternary-color)] focus:border-transparent"
+                  />
+                ) : (
+                  <input
+                    type={field === "dob" ? "date" : "text"}
+                    name={field}
+                    value={formData[field]}
+                    onChange={handleChange}
+                    placeholder={`Enter ${field.replace(/([A-Z])/g, " $1")}`}
+                    className="mt-1 block w-full border border-[var(--quaternary-color)] rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-[var(--quaternary-color)] focus:border-transparent"
+                  />
+                )}
+              </div>
+            ))}
+          </div>
+        </form>
       </div>
 
       {/* Address */}
-      <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-        <h2 className="text-xl font-semibold mb-2">Address</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="pt-4 bg-white shadow-md rounded-lg p-6 mt-6">
+        <h2 className="text-xl font-medium mb-4  pb-3">Address</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {["streetAddress", "city"].map((field, index) => (
             <div key={index}>
-              <label className="block text-gray-700 capitalize">{field.replace(/([A-Z])/g, " $1")}</label>
+              <label className="block text-gray-700 capitalize">
+                {field.replace(/([A-Z])/g, " $1")}
+              </label>
               <input
                 type="text"
                 name={field}
                 value={formData[field]}
                 onChange={handleChange}
-                className="w-full p-2 border rounded"
+                placeholder={`Enter ${field.replace(/([A-Z])/g, " $1")}`}
+                className="mt-1 block w-full border border-[var(--quaternary-color)] rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-[var(--quaternary-color)] focus:border-transparent"
               />
             </div>
           ))}
@@ -105,27 +136,39 @@ const MemberDetails = () => {
       </div>
 
       {/* Contacts */}
-      <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+      <div className="pt-4 bg-white shadow-md rounded-lg p-6 mt-6">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-semibold">Contacts</h2>
-          <button className="bg-blue-600 text-white py-2 px-4 rounded">Additional Contact</button>
+          <h2 className="text-xl font-medium">Contacts</h2>
+          <Button
+            text="Additional Contact"
+            className={" mt-4"}
+            onClick={() => console.log("Clicked!")}
+          />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {["contactName", "contactPhone"].map((field, index) => (
             <div key={index}>
-              <label className="block text-gray-700 capitalize">{field.replace(/([A-Z])/g, " $1")}</label>
+              <label className="block text-gray-700 capitalize">
+                {field.replace(/([A-Z])/g, " $1")}
+              </label>
               <input
                 type="text"
                 name={field}
                 value={formData[field]}
                 onChange={handleChange}
-                className="w-full p-2 border rounded"
+                placeholder={`Enter ${field.replace(/([A-Z])/g, " $1")}`}
+                className="mt-1 block w-full border border-[var(--quaternary-color)] rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-[var(--quaternary-color)] focus:border-transparent"
               />
             </div>
           ))}
           <div>
             <label className="block text-gray-700">Relation</label>
-            <select name="relation" value={formData.relation} onChange={handleChange} className="w-full p-2 border rounded">
+            <select
+              name="relation"
+              value={formData.relation}
+              onChange={handleChange}
+              className="mt-1 block w-full border border-[var(--quaternary-color)] rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-[var(--quaternary-color)] focus:border-transparent"
+            >
               <option>Parent</option>
             </select>
           </div>
@@ -133,35 +176,46 @@ const MemberDetails = () => {
       </div>
 
       {/* Photo */}
-      <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-        <h2 className="text-xl font-semibold mb-2">Photo</h2>
+      <div className="bg-white p-6 rounded-lg shadow-md mb-6 mt-6">
+        <h2 className="text-xl font-semibold mb-4">Photo</h2>
         <div className="flex items-center space-x-4">
           <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center">
             <i className="fas fa-camera text-2xl text-gray-500"></i>
           </div>
-          <button className="bg-white border py-2 px-4 rounded shadow">Capture from camera</button>
-          <button className="bg-white border py-2 px-4 rounded shadow">Upload Photo</button>
+          <button className="bg-white border border-gray-300 text-gray-600 hover:bg-gray-200 transition duration-300 py-2 px-4 rounded-full shadow">
+            Capture from camera
+          </button>
+          <button className="bg-white border border-gray-300 text-gray-600 hover:bg-gray-200 transition duration-300 py-2 px-6 rounded-full shadow">
+            Upload Photo
+          </button>
         </div>
       </div>
 
       {/* Account Security */}
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-xl font-semibold mb-2">Account Security</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="pt-4 bg-white shadow-md rounded-lg p-6 mt-6">
+        <h2 className="text-xl font-medium mb-4 ">Account Security</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {["checkInCode", "confirmCheckInCode"].map((field, index) => (
             <div key={index}>
-              <label className="block text-gray-700 capitalize">{field.replace(/([A-Z])/g, " $1")}</label>
+              <label className="block text-gray-700 capitalize">
+                {field.replace(/([A-Z])/g, " $1")}
+              </label>
               <input
                 type="text"
                 name={field}
                 value={formData[field]}
                 onChange={handleChange}
-                className="w-full p-2 border rounded"
+                placeholder={`Enter ${field.replace(/([A-Z])/g, " $1")}`}
+                className="mt-1 block w-full border border-[var(--quaternary-color)] rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-[var(--quaternary-color)] focus:border-transparent"
               />
             </div>
           ))}
+          <Button
+            text="Register Finger Print"
+            className={"m-2.5 ml-8 mt-7"}
+            onClick={() => console.log("Clicked!")}
+          />
         </div>
-        <button className="mt-4 bg-blue-600 text-white py-2 px-4 rounded">Register Finger Print</button>
       </div>
     </div>
   );

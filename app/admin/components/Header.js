@@ -20,7 +20,7 @@ const DashboardHeader = ({ onSearch, searchQuery: propSearchQuery }) => {
       {searchQuery}
       </h1>
 
-      <div className="flex justify-center items-center w-full top-0 left-0 h-16">
+      <div className="flex justify-center items-center w-auto top-0 ml-20 h-16">
         <div className="relative max-w-md w-64">
           <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
             <Search className="h-4 w-4 text-gray-400" />

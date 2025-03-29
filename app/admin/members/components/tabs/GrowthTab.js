@@ -1,39 +1,159 @@
-import React from 'react'
+import React from "react";
+import { Bar } from "react-chartjs-2";
+import { Chart } from "chart.js";
+import annotationPlugin from "chartjs-plugin-annotation";
+import "chart.js/auto";
+
+Chart.register(annotationPlugin);
 
 const GrowthTab = () => {
+  //  Sample attendance data
+  const attendanceData = {
+    labels: [
+      "Day 1",
+      "Day 2",
+      "Day 3",
+      "Day 4",
+      "Day 5",
+      "Day 6",
+      "Day 7",
+      "Day 8",
+      "Day 9",
+      "Day 10",
+      "Day 11",
+      "Day 12",
+      "Day 13",
+      "Day 14",
+    ],
+    datasets: [
+      {
+        label: "Attendance",
+        data: [
+          120, 200, 130, 80, 40, 100, 180, 90, 150, 110, 170, 140, 200, 250,
+        ],
+        backgroundColor: "#2196F3",
+        borderRadius: 10,
+        barThickness: 8,
+      },
+    ],
+  };
+
+  // Chart options (Fix annotations & improve styles)
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        grid: {
+          display: true, // Ensure grid is enabled for the X-axis
+          color: "white", // Lighter gray color for grid lines
+          borderDash: [5, 5], // Set the dash pattern for the X-axis grid
+          borderWidth: 1, // Line width for the grid
+        },
+        ticks: {
+          color: "white", // Color of the ticks (labels)
+          font: {
+            size: 14,
+            weight: "bold",
+            family: "Arial",
+          },
+        },
+      },
+      y: {
+        grid: {
+          color: "#D3D3D3", // Softer gray for grid lines
+          borderDash: [4, 4], // Dashed lines for the Y-axis grid
+          borderWidth: 1, // Line width for the grid
+        },
+        ticks: {
+          color: "#444", // Color of the ticks (labels)
+          font: {
+            size: 14,
+            weight: "bold",
+            family: "Arial",
+          },
+          stepSize: 100, // More precise Y-axis steps
+        },
+      },
+    },
+
+    plugins: {
+      title: {
+        display: true,
+        font: { size: 18, weight: "bold" },
+        color: "#333",
+        padding: 15,
+      },
+      legend: { display: false },
+      tooltip: {
+        enabled: true,
+        backgroundColor: "rgba(0,0,0,0.8)",
+        titleColor: "#FFF",
+        bodyColor: "#FFF",
+        padding: 5,
+        displayColors: false,
+      },
+      annotation: {
+        annotations: attendanceData.datasets[0].data.map((value, index) => ({
+          type: "point",
+          xValue: index,
+          yValue: value,
+          backgroundColor: "#000", // Black dot
+          borderColor: "#FFF", // White border
+          borderWidth: 2, // Border thickness
+          radius: 7, // Dot size
+        })),
+      },
+    },
+  };
+
   return (
-    <div className="bg-gray-100 p-4">
-      <div className="max-w-7xl mx-auto">
+    <div className="bg-gray-100 mt-4">
+      <div className=" mx-auto">
         {/* Active Members Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-2">Active Members</h2>
+          <div className="bg-[var(--box-color)] p-6 rounded-lg shadow-md">
+            <h2 className="text-xl font-medium mb-2">Active Members</h2>
             <p className="text-4xl font-bold">0</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-2">New Members</h2>
-            <div className="flex justify-end mb-2">
-              <button className="bg-blue-100 text-blue-600 px-3 py-1 rounded-md">Day</button>
-              <button className="bg-white text-gray-600 px-3 py-1 rounded-md ml-2">Week</button>
-              <button className="bg-white text-gray-600 px-3 py-1 rounded-md ml-2">Month</button>
+            <div className="flex justify-between items-center mb-2">
+              <h2 className="text-xl font-medium">New Members</h2>
+              <div className="flex">
+                <button className="bg-blue-100 text-[var(--primary-color)] px-3 py-1 rounded-md">
+                  Day
+                </button>
+                <button className="bg-white text-[var(--primary-color)] px-3 py-1 rounded-md ml-2">
+                  Week
+                </button>
+                <button className="bg-white text-[var(--primary-color)] px-3 py-1 rounded-md ml-2">
+                  Month
+                </button>
+              </div>
             </div>
-            <div className="h-32 bg-gray-100 rounded-md"></div>
+
+            {/* Graph Section */}
+            <div className="mt-2 relative">
+              <div className="h-[200px] ">
+                <Bar data={attendanceData} options={options} />
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Visitors, Frozen, Cancelled Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-          <div className="bg-white p-6 rounded-lg shadow-md text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 ">
+          <div className="bg-[var(--box-color)] p-6 rounded-lg shadow-md text-center">
             <p className="text-2xl font-bold">635</p>
-            <p className="text-gray-600">Visitors</p>
+            <p className="text-[var(--primary-color)]">Visitors</p>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-md text-center">
+          <div className="bg-[var(--box-color)] p-6 rounded-lg shadow-md text-center">
             <p className="text-2xl font-bold">635</p>
-            <p className="text-gray-600">Frozen</p>
+            <p className="text-[var(--primary-color)]">Frozen</p>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-md text-center">
+          <div className="bg-[var(--box-color)] p-6 rounded-lg shadow-md text-center">
             <p className="text-2xl font-bold">635</p>
-            <p className="text-gray-600">Cancelled</p>
+            <p className="text-[var(--primary-color)]">Cancelled</p>
           </div>
         </div>
 
@@ -47,11 +167,17 @@ const GrowthTab = () => {
               </button>
             </div>
           </div>
-          <div className="h-64 bg-gray-100 rounded-md"></div>
+          {/* Graph Section */}
+          <div className="mt-4 relative">
+            <div className="border-b-2  border-gray-200"></div>
+            <div className="h-[250px] ">
+              <Bar data={attendanceData} options={options} />
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default GrowthTab
+export default GrowthTab;

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import Button from "../../../components/Button";
 
 export default function Widget() {
   const [checkInCode, setCheckInCode] = useState("");
@@ -26,14 +27,13 @@ export default function Widget() {
             <p className="text-gray-400 mb-4">No upcoming sessions</p>
             <div className="flex justify-center mt-110">
               {" "}
-              <button className="bg-[var(--primary-color)] text-white py-2 px-4 rounded-full w-45">
-                Add Session <i className="fas fa-arrow-right"></i>
-              </button>
+              <Button text="Add Session"   />
+              
             </div>
           </div>
 
           {/* Check-In Section */}
-          <div className="bg-gradient-to-b from-[var(--primary-color)] to-teal-800 p-6 rounded-lg shadow-md text-center">
+          <div className="bg-gradient-to-b from-[var(--primary-color)] to-[var(--secondary-color)] p-6 rounded-lg shadow-md text-center">
             {/* Top Navigation */}
             <div className="flex justify-center mb-4">
               <button className="text-white font-semibold mx-2">
@@ -78,7 +78,7 @@ export default function Widget() {
 
             {/* Check-In Button */}
             <button
-              className="bg-green-700 text-white py-2 px-4 rounded-full w-45 inset-shadow-amber-50 hover:shadow-xl transition-shadow duration-300"
+              className="bg-green-700 text-white py-2 px-4 mb-10 rounded-full w-45 inset-shadow-amber-50 hover:shadow-xl transition-shadow duration-300"
               onClick={() => console.log("Final Check-in Code:", checkInCode)}
             >
               Check In <i className="fas fa-arrow-right"></i>
@@ -91,9 +91,7 @@ export default function Widget() {
             <p className="text-gray-400 mb-4">No check-ins yet today</p>
             <div className="flex justify-center mt-110">
               {" "}
-              <button className="bg-[var(--primary-color)] text-white py-2 px-4 rounded-full w-45">
-                Check In <i className="fas fa-arrow-right"></i>
-              </button>
+              <Button text="Check In" icon="fas fa-arrow-right"  />
             </div>
           </div>
         </div>

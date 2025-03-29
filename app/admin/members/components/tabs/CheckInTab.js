@@ -32,7 +32,7 @@ export default function Widget() {
           </div>
 
           {/* Check-In Section */}
-          <div className="bg-gradient-to-b from-[var(--primary-color)] to-teal-800 p-6 rounded-lg shadow-md text-center">
+          <div className="bg-gradient-to-b from-[var(--primary-color)] to-[var(--secondary-color)] p-6 rounded-lg shadow-md text-center">
             {/* Top Navigation */}
             <div className="flex justify-center mb-4">
               <button className="text-white font-semibold mx-2">

@@ -37,6 +37,10 @@ const FrontdeskTabBar = () => {
               {tab}
             </button>
           ))}
+          {/* Log Out */}
+          <div className="flex justify-end flex-1">
+            <button className="text-black  cursor-pointer px-4 ">Log Out</button>
+          </div>
         </nav>
       </div>
 
