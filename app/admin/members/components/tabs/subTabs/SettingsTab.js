@@ -1,10 +1,10 @@
 import React from 'react'
-import MemberSettingTab from "../../../../settings/components/tabs/memberSettingTab";
+import SettingTab from "../../../../settings/components/tabs/attendanceSettingTab";
 
 
 const SettingsTab = () => {
   return (
-    <div><MemberSettingTab/></div>
+    <div className='mt-4'><SettingTab/></div>
   )
 }
 

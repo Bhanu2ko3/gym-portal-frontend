@@ -17,7 +17,7 @@ export default function Widget() {
   };
 
   return (
-    <div className="flex justify-center items-center mt-1.5">
+    <div className="flex justify-center items-center mt-4">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Today's Sessions */}

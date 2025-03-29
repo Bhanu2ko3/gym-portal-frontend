@@ -1,86 +1,92 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { Search } from "lucide-react";
+import Button from "../../../components/Button";
 
 const ManagersStaffTab = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   const staffMembers = [
     {
-      id: '1571',
-      name: 'Demo Customer',
-      role: 'Owner',
-      permissions: 'All',
-      added: 'Dec 29, 2024',
+      id: "1571",
+      name: "Demo Customer",
+      role: "Owner",
+      permissions: "All",
+      added: "Dec 29, 2024",
     },
     {
-      id: '1572',
-      name: 'Cosam Malaika',
-      role: 'Owner',
-      permissions: 'All',
-      added: 'Salama Park',
+      id: "1572",
+      name: "Cosam Malaika",
+      role: "Owner",
+      permissions: "All",
+      added: "Jan 15, 2025", // Fixed invalid date
     },
   ];
 
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
+  // Ensure filtered members are updated when searchQuery changes
+  const filteredMembers = staffMembers.filter((staff) =>
+    staff.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
-    <div className="bg-gray-100 p-6">
-      <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-md p-6">
+    <div className="bg-gray-100 mt-4 ">
+      {" "}
+      {/* Apply h-full here */}
+      <div className="bg-white rounded-lg shadow-md p-6 h-100">
+        {" "}
+        {/* Ensures full height */}
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-xl font-semibold">Gym Staff</h1>
+          <h1 className="text-xl font-medium ml-3">Gym Staff</h1>
           <div className="flex items-center space-x-4">
+            {/* Search */}
             <div className="relative">
               <input
                 type="text"
                 placeholder="Search"
-                className="border rounded-full py-2 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                value={searchTerm}
-                onChange={handleSearchChange}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-4 pr-10 py-2 border border-gray-300 rounded-2xl w-64 focus:outline-none focus:ring-1 focus:ring-[var(--quaternary-color)]"
               />
-              <i className="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+              <div className="absolute right-3 top-2.5">
+                <Search className="h-5 w-5 text-gray-400" />
+              </div>
             </div>
-            <button className="bg-blue-700 text-white py-2 px-4 rounded-full">
-              Add Staff Member
-            </button>
+            <Button
+              text="Add Staff Member"
+              onClick={() => console.log("Clicked!")}
+            />
           </div>
         </div>
-
-        <table className="w-full text-left">
+        <table className="w-full text-left ">
           <thead>
-            <tr className="border-b">
+            <tr className="border-b-3 border-[var(--quaternary-color)] font-medium text-gray-600">
               <th className="py-2 px-4">
                 <input type="checkbox" />
               </th>
-              <th className="py-2 px-4 flex items-center">
-                Name
-                <i className="fas fa-filter ml-2 text-gray-400"></i>
-              </th>
+              <th className="py-2 px-4">ID</th>
+              <th className="py-2 px-4">Name</th>
               <th className="py-2 px-4">Role</th>
               <th className="py-2 px-4">Permissions</th>
-              <th className="py-2 px-4">Learn more</th>
               <th className="py-2 px-4">Added</th>
               <th className="py-2 px-4">Actions</th>
             </tr>
           </thead>
           <tbody>
-            {staffMembers
-              .filter((staff) =>
-                staff.name.toLowerCase().includes(searchTerm.toLowerCase())
-              )
-              .map((staff) => (
-                <tr key={staff.id} className="border-b hover:bg-gray-50">
-                  <td className="py-2 px-4">
-                    <input type="checkbox" />
-                  </td>
-                  <td className="py-2 px-4">{staff.id}</td>
-                  <td className="py-2 px-4">{staff.name}</td>
-                  <td className="py-2 px-4">{staff.role}</td>
-                  <td className="py-2 px-4">{staff.permissions}</td>
-                  <td className="py-2 px-4">{staff.added}</td>
-                  <td className="py-2 px-4">...</td>
-                </tr>
-              ))}
+            {filteredMembers.map((staff) => (
+              <tr
+                key={staff.id}
+                className="border-b border-gray-200 hover:bg-gray-50"
+              >
+                <td className="py-2 px-4">
+                  <input type="checkbox" />
+                </td>
+                <td className="py-2 px-4">{staff.id}</td>
+                <td className="py-2 px-4">{staff.name}</td>
+                <td className="py-2 px-4">{staff.role}</td>
+                <td className="py-2 px-4">{staff.permissions}</td>
+                <td className="py-2 px-4">{staff.added}</td>
+                <td className="py-2 px-4">...</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

@@ -3,20 +3,18 @@ import { Search, MoreHorizontal, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const MembersTab = ({
-  members = [], // Default to empty array if not passed
+  members = [],
   selectedRows = [],
-  toggleSelectAll,
-  toggleSelectRow,
+  toggleSelectAll = () => {}, // Default empty function to prevent errors
+  toggleSelectRow = () => {},
 }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Ensure filtered members are updated when searchQuery or members change
   const filteredMembers = members.filter((member) =>
     member.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   useEffect(() => {
-    // Handle case when members might be initially empty or undefined
     if (!Array.isArray(members)) {
       console.error("Invalid members prop, expected an array");
     }
@@ -52,58 +50,34 @@ const MembersTab = ({
                 type="checkbox"
                 className="h-4 w-4 text-[var(--primary-color)] border-gray-300 rounded"
                 checked={selectedRows.length === members.length}
-                onChange={toggleSelectAll}
+                onChange={toggleSelectAll} // Ensure this function is defined
               />
             </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider"
-            >
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
               ID
             </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider"
-            >
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
               <div className="flex items-center">
                 Name
                 <ChevronDown className="ml-1 h-4 w-4" />
               </div>
             </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider"
-            >
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
               Contact
             </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider"
-            >
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
               Email
             </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider"
-            >
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
               Age
             </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider"
-            >
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
               Gender
             </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider"
-            >
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
               Residence
             </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider"
-            >
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
               Actions
             </th>
           </tr>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "../../../components/Button";
 
 const GymSettings = () => {
   const [formData, setFormData] = useState({
@@ -24,13 +25,17 @@ const GymSettings = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl p-6 bg-white rounded-lg shadow-md">
-      <h1 className="text-2xl font-semibold mb-2">Gym Settings</h1>
-      <p className="text-gray-500 mb-6">Change the gym name, address, time settings and more.</p>
-      <div className="border-t border-gray-200 pt-4">
-        <h2 className="text-xl font-semibold mb-4">General Settings</h2>
-        <form className="space-y-6" onSubmit={handleSubmit}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="w-full p-6 rounded-lg">
+      <h1 className="text-lg font-medium mb-2 ml-5">Gym Settings</h1>
+      <p className="text-gray-500 mb-6 ml-5">
+        Change the gym name, address, time settings and more.
+      </p>
+      <div className="pt-4 bg-white shadow-md rounded-lg p-6">
+        <h2 className="text-xl font-medium mb-4 border-b-3 border-gray-200 pb-4">
+          General Settings
+        </h2>
+        <form className="space-y-6 " onSubmit={handleSubmit}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
             <div>
               <label className="block text-gray-700">Name</label>
               <input
@@ -39,7 +44,8 @@ const GymSettings = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                className="mt-1 block w-full border border-[var(--quaternary-color)] rounded-md  shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-[var(--quaternary-color)] focus:border-transparent "
+                maxLength="50" // Limit Name to 50 characters
               />
             </div>
             <div>
@@ -50,7 +56,8 @@ const GymSettings = () => {
                 name="phoneNumber"
                 value={formData.phoneNumber}
                 onChange={handleChange}
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                className="mt-1 block w-full border border-[var(--quaternary-color)] rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-[var(--quaternary-color)] focus:border-transparent"
+                maxLength="15" // Limit Phone Number length
               />
             </div>
             <div>
@@ -61,9 +68,11 @@ const GymSettings = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                className="mt-1 block w-full border border-[var(--quaternary-color)]  rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-[var(--quaternary-color)] focus:border-transparent"
+                maxLength="100" // Limit Email length
               />
             </div>
+            <br />
             <div>
               <label className="block text-gray-700">Password</label>
               <input
@@ -72,7 +81,8 @@ const GymSettings = () => {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                className="mt-1 block w-full border border-[var(--quaternary-color)] rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-[var(--quaternary-color)] focus:border-transparent"
+                maxLength="20" // Limit Password length
               />
             </div>
             <div>
@@ -83,17 +93,18 @@ const GymSettings = () => {
                 name="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={handleChange}
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                className="mt-1 block w-full border border-[var(--quaternary-color)] rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-[var(--quaternary-color)] focus:border-transparent"
+                maxLength="20" // Limit Confirm Password length
               />
             </div>
           </div>
-          <div className="flex justify-center">
-            <button
-              type="submit"
-              className="bg-teal-600 text-white px-6 py-2 rounded-md shadow-md hover:bg-teal-700"
-            >
-              Save Settings
-            </button>
+
+          <div className="flex justify-center mt-15 mb-10">
+            <Button
+            
+              text="Save Settings"
+              onClick={() => console.log("Clicked!")}
+            />
           </div>
         </form>
       </div>

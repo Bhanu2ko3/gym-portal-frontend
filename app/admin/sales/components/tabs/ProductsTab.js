@@ -4,9 +4,9 @@ import Button from "../../../components/Button";
 const ProductsTab = () => {
   return (
     <div className="bg-gray-100 flex items-center justify-center mt-4 ml-3">
-      <div className="bg-white shadow-md rounded-lg p-6 w-full h-100 ">
+      <div className="bg-white shadow-md rounded-lg p-6 w-full  ">
         {/* Header with buttons */}
-        <div className="flex justify-between items-center mb-6">
+        <div className="flex justify-between items-center mb-6 ">
           <Button
             text="Create Product"
             onClick={() => console.log("Clicked!")}

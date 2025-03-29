@@ -8,7 +8,7 @@ import SettingTab from "./subTabs/SettingTab";
 const BookingTabBar = () => {
   const [activeTab, setActiveTab] = useState("Upcoming");
 
-  const tabs = ["Upcoming", "Previous", "Book Session", "Setting"];
+  const tabs = ["Upcoming", "Previous", "Book Session", "Settings"];
 
   const renderTabContent = () => {
     switch (activeTab) {
@@ -18,7 +18,7 @@ const BookingTabBar = () => {
         return <PreviousTab />;
       case "Book Session":
         return <BookSessionTab />;
-      case "Setting":
+      case "Settings":
         return <SettingTab />;
       default:
         return <div>Select a valid tab</div>;
@@ -26,7 +26,7 @@ const BookingTabBar = () => {
   };
 
   return (
-    <div className="w-full h-screen flex flex-col rounded-lg shadow-lg p-4">
+    <div className="w-full h-full flex flex-col rounded-lg shadow-lg p-4">
       {/* Tab Navigation */}
       <div className="border-b border-gray-200">
         <nav className="flex space-x-8">

@@ -53,13 +53,13 @@ const SideTabBar = () => {
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
-      <div className="w-64 bg-gradient-to-b from-blue-900 to-blue-700 text-white">
+      <div className="w-64 bg-gradient-to-b from-[var(--primary-color)] to-[var(--secondary-color)] text-white rounded-tr-2xl">
         <ul className="space-y-4 p-4">
           {tabs.map((tab) => (
-            <li key={tab} className="flex justify-between items-center">
+            <li key={tab} className="flex justify-between items-center ">
               <button
-                className={`flex justify-between items-center w-full hover:bg-blue-800 p-2 rounded-lg ${
-                  activeTab === tab ? "bg-blue-800" : ""
+                className={`flex justify-between items-center w-full cursor-pointer hover:bg-[var(--secondary-color)] p-2 rounded-lg ${
+                  activeTab === tab ? "bg-[var(--secondary-color)]" : ""
                 }`}
                 onClick={() => setActiveTab(tab)}
               >
@@ -76,7 +76,7 @@ const SideTabBar = () => {
       </div>
 
       {/* Tab Content */}
-      <div className="flex-1 overflow-auto mt-4 p-6">
+      <div className="flex-1  px-5 ">
         <div className="w-full h-full">{renderTabContent()}</div>
       </div>
     </div>

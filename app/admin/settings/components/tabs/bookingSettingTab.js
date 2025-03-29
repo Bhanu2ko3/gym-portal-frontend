@@ -1,75 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import Button from "../../../components/Button";
 
 const bookingsSettings = [
-  { label: "Apply membership access restrictions to bookings", id: "membership_access", value: true },
-  { label: "Require Email Address", id: "require_email", value: true },
-  { label: "Require Phone number", id: "require_phone", value: true },
-  { label: "Disable member bookings for overdue payments", id: "disable_overdue", value: true },
-  { label: "Require card-on-file for member bookings", id: "require_card_file", value: false },
-  { label: "Allow members to cancel bookings", id: "allow_cancel", value: false },
-  { label: "Allow bookings after session start time", id: "allow_after_start", value: false },
-  { label: "Refund bookings fees on cancellation", id: "refund_on_cancellation", value: true },
-  { label: "Members can see who already booked", id: "see_booked_members", value: true },
-  { label: "Show number of bookings on public schedule sessions", id: "show_public_bookings", value: true },
-  { label: "Enable waitlist for fully booked sessions", id: "enable_waitlist", value: true },
-  { label: "Automatically check-in bookings when class starts", id: "auto_checkin", value: false },
-  { label: "Allow recurring bookings", id: "allow_recurring", value: false },
-  { label: "Collect lead details first", id: "collect_lead_details", value: false },
-  { label: "Require document signature", id: "require_doc_signature", value: true },
-  { label: "Deduct a session on booking no-show", id: "deduct_no_show", value: true },
-  { label: "Send a booking confirmation Email", id: "send_confirmation_email", value: true },
-  { label: "Receive copy of cancellation Emails", id: "receive_cancellation_emails", value: true },
-  { label: "Require terms acceptance when booking", id: "require_terms_acceptance", value: false },
+  { label: "Apply membership access restrictions to bookings", id: "membership_access", default: true },
+  { label: "Require Email Address", id: "require_email", default: true },
+  { label: "Require Phone number", id: "require_phone", default: true },
+  { label: "Disable member bookings for overdue payments", id: "disable_overdue", default: true },
+  { label: "Require card-on-file for member bookings", id: "require_card_file", default: false },
+  { label: "Allow members to cancel bookings", id: "allow_cancel", default: false },
+  { label: "Allow bookings after session start time", id: "allow_after_start", default: false },
+  { label: "Refund bookings fees on cancellation", id: "refund_on_cancellation", default: true },
+  { label: "Members can see who already booked", id: "see_booked_members", default: true },
+  { label: "Show number of bookings on public schedule sessions", id: "show_public_bookings", default: true },
+  { label: "Enable waitlist for fully booked sessions", id: "enable_waitlist", default: true },
+  { label: "Automatically check-in bookings when class starts", id: "auto_checkin", default: false },
+  { label: "Allow recurring bookings", id: "allow_recurring", default: false },
+  { label: "Collect lead details first", id: "collect_lead_details", default: false },
+  { label: "Require document signature", id: "require_doc_signature", default: true },
+  { label: "Deduct a session on booking no-show", id: "deduct_no_show", default: true },
+  { label: "Send a booking confirmation Email", id: "send_confirmation_email", default: true },
+  { label: "Receive copy of cancellation Emails", id: "receive_cancellation_emails", default: true },
+  { label: "Require terms acceptance when booking", id: "require_terms_acceptance", default: false },
 ];
 
 const BookingsSettings = () => {
-  const [settings, setSettings] = useState(bookingsSettings);
+  const [settings, setSettings] = useState(
+    bookingsSettings.reduce((acc, setting) => ({ ...acc, [setting.id]: setting.default }), {})
+  );
 
-  const handleToggle = (id) => {
-    setSettings((prevSettings) =>
-      prevSettings.map((setting) =>
-        setting.id === id ? {...setting, value: !setting.value} : setting
-      )
-    );
-  };
-
-  const handleSave = () => {
-    // Save settings logic (e.g., API call)
-    console.log('Settings saved:', settings);
-  };
+  const toggleSetting = (id) =>
+    setSettings((prev) => ({ ...prev, [id]: !prev[id] }));
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow">
-      <h2 className="text-2xl font-semibold mb-6">Bookings Settings</h2>
-      <div className="space-y-4">
-        {settings.map((setting) => (
-          <div key={setting.id} className="flex items-center justify-between">
-            <span>{setting.label}</span>
-            <div className="relative inline-block w-10 mr-2 align-middle select-none">
-              <input
-                type="checkbox"
-                name={setting.id}
-                id={setting.id}
-                checked={setting.value}
-                onChange={() => handleToggle(setting.id)}
-                className="absolute block w-6 h-6 rounded-full bg-gray-300 cursor-pointer"
-              />
-              <label
-                htmlFor={setting.id}
-                className={`block h-6 rounded-full transition-colors duration-200 ${
-                  setting.value ? "bg-blue-600" : "bg-gray-400"
-                }`}
-              ></label>
+    <div className="bg-white shadow-md rounded-lg p-6  h-full w-full mx-auto">
+      <h2 className="text-xl font-medium mb-4 border-b-3 pb-2 border-gray-100">
+        Bookings Settings
+      </h2>
+      <div className="space-y-4 ml-10">
+        {bookingsSettings.map(({ label, id }) => (
+          <div key={id} className="flex justify-between items-center">
+            <span>{label}</span>
+            <div className="flex items-center mr-10">
+              
+              <label className="relative inline-flex items-center cursor-pointer">
+                <input
+                  type="checkbox"
+                  className="sr-only peer"
+                  checked={settings[id]}
+                  onChange={() => toggleSetting(id)}
+                />
+                <div className="w-11 h-6 bg-gray-200 rounded-full peer peer-checked:bg-[var(--primary-color)]"></div>
+                <span className="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform peer-checked:translate-x-full"></span>
+              </label>
+              
             </div>
           </div>
         ))}
+        <div className="mt-10 flex justify-center">
+          <Button text="Save Settings" onClick={() => console.log("Settings saved!", settings)} />
+        </div>
       </div>
-      <button
-        onClick={handleSave}
-        className="mt-6 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-      >
-        Save Settings
-      </button>
     </div>
   );
 };

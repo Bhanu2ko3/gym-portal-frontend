@@ -3,7 +3,7 @@ import { useState } from "react";
 import OverviewTab from "./subTabs/OverviewTab";
 import CheckInsTab from "./subTabs/CheckInsTab";
 import PromotionsTab from "./subTabs/PromotionsTab";
-import MembersTab from "./MembersTab";
+import MembersTab from "./subTabs/MembersTab2";
 import SessionsTab from "./subTabs/SessionsTab";
 import MultipleCheckInTab from "./subTabs/MultipleCheckInTab";
 import SettingsTab from "./subTabs/SettingsTab";
@@ -43,7 +43,7 @@ const AttendanceTabBar = () => {
   };
 
   return (
-    <div className="w-full h-screen flex flex-col rounded-lg shadow-lg p-4">
+    <div className="w-full h-full flex flex-col rounded-lg shadow-lg p-4">
       {/* Tab Navigation */}
       <div className="border-b border-gray-200">
         <nav className="flex space-x-8">

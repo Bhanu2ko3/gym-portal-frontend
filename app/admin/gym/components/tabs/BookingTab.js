@@ -1,8 +1,8 @@
 import BookingTabBar from "./BookingTabBar";
 
-export default function GymPage() {
+export default function BookingTab() {
   return (
-    <div className="bg-[var(--tertiary-color)]">
+    <div className="">
       <BookingTabBar/>
     </div>
     

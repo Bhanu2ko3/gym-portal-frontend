@@ -2,8 +2,8 @@ import React from 'react';
 
 const SessionsTab = () => {
   return (
-    <div className="bg-gray-100 flex items-center justify-center min-h-screen">
-      <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-4xl">
+    <div className="bg-gray-100 flex items-center justify-center mt-4">
+      <div className="bg-white rounded-lg shadow-lg p-8 w-full ">
         <div className="flex justify-end space-x-4 mb-4">
           <button className="bg-white border border-gray-300 text-gray-700 rounded-full px-4 py-2 shadow-sm hover:bg-gray-100">
             Print
