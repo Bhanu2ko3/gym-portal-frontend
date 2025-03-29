@@ -1,13 +1,14 @@
 import React from "react";
+import Button from "../../../components/Button";
+
 
 const SalesTab = () => {
   return (
-    <div className="bg-gray-100 flex items-center justify-center min-h-screen">
-      <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-4xl flex items-center justify-between">
+    <div className="bg-gray-100  mt-4">
+      <div className="bg-white rounded-lg shadow-lg p-6 w-full  flex ">
         {/* Create Sales Button */}
-        <button className="bg-teal-600 text-white py-2 px-4 rounded-full">
-          Create Sales
-        </button>
+        <Button text="Create Sales" onClick={() => console.log("Clicked!")} />
+
 
         {/* Sales Status Text */}
         <div className="flex-grow text-center text-gray-400">
@@ -15,7 +16,7 @@ const SalesTab = () => {
         </div>
 
         {/* Export Button */}
-        <button className="bg-white border border-gray-300 text-gray-600 py-2 px-4 rounded-full shadow">
+        <button className="bg-white border border-gray-300 text-gray-600 hover:bg-gray-200 transition duration-300 py-2 px-4 rounded-full shadow">
           Export
         </button>
       </div>

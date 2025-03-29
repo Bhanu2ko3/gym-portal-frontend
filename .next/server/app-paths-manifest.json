@@ -2,6 +2,7 @@
   "/admin/members/page": "app/admin/members/page.js",
   "/admin/dashboard/page": "app/admin/dashboard/page.js",
   "/admin/marketing/page": "app/admin/marketing/page.js",
-  "/admin/sales/page": "app/admin/sales/page.js",
-  "/admin/frontdesk/page": "app/admin/frontdesk/page.js"
+  "/admin/gym/page": "app/admin/gym/page.js",
+  "/admin/billing/page": "app/admin/billing/page.js",
+  "/admin/sales/page": "app/admin/sales/page.js"
 }

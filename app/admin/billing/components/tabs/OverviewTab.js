@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
+import Button from "../../../components/Button";
 
 const OverviewTab = () => {
   return (
     <div className=" p-6">
       <div className="max-w-7xl mx-auto">
         {/* Totals Section */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+        <p className="text-gray-700 text-lg mb-4">Totals</p>
+        <div className="grid grid-cols-1 md:grid-cols-4  mb-6">
           <div className="flex flex-col items-center">
             <div className="w-24 h-24 flex items-center justify-center border-2 border-gray-300 rounded-full">
               <span className="text-gray-500 text-lg">
@@ -64,12 +66,13 @@ const OverviewTab = () => {
         </div>
 
         {/* Recent Payments Section */}
-        <div className="bg-white p-6 rounded-lg shadow">
+        <div className="bg-white p-6 rounded-lg shadow h-100">
           <div className="flex justify-between items-center mb-4">
             <span className="text-gray-700 text-lg">Recent Payments</span>
-            <button className="bg-teal-600 text-white px-4 py-2 rounded">
-              All Payments
-            </button>
+            <Button
+              text="All Payments"
+              onClick={() => console.log("Clicked!")}
+            />
           </div>
           <div className="text-center text-gray-400">No payments found.</div>
         </div>

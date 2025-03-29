@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import Button from "../../../components/Button";
 
 export default function Widget() {
   const [checkInCode, setCheckInCode] = useState("");
@@ -17,7 +18,7 @@ export default function Widget() {
   };
 
   return (
-    <div className="flex justify-center items-center mt-1.5">
+    <div className="flex justify-center items-center mt-4">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Today's Sessions */}
@@ -26,9 +27,7 @@ export default function Widget() {
             <p className="text-gray-400 mb-4">No upcoming sessions</p>
             <div className="flex justify-center mt-110">
               {" "}
-              <button className="bg-[var(--primary-color)] text-white py-2 px-4 rounded-full w-45">
-                Add Session <i className="fas fa-arrow-right"></i>
-              </button>
+              <Button text="Add Session" onClick={() => console.log("Clicked!")} />
             </div>
           </div>
 
@@ -91,9 +90,7 @@ export default function Widget() {
             <p className="text-gray-400 mb-4">No check-ins yet today</p>
             <div className="flex justify-center mt-110">
               {" "}
-              <button className="bg-[var(--primary-color)] text-white py-2 px-4 rounded-full w-45">
-                Check In <i className="fas fa-arrow-right"></i>
-              </button>
+              <Button text="Check In" icon="fas fa-arrow-right"  />
             </div>
           </div>
         </div>

@@ -1,19 +1,18 @@
 import React from "react";
+import Button from "../../../components/Button";
 
 const LeadsTab = () => {
   return (
-    <div className="bg-gray-100 flex items-center justify-center min-h-screen">
-      <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-4xl">
+    <div className="bg-gray-100 flex items-center justify-center mt-4 ml-3 ">
+      <div className="bg-white rounded-lg shadow-lg p-6 w-full h-100 ">
         {/* Header */}
         <div className="flex justify-between items-center mb-4">
-          <button className="bg-teal-600 text-white px-4 py-2 rounded-full shadow-md">
-            Create Lead
-          </button>
+          <Button text="Create Lead" onClick={() => console.log("Clicked!")} />
           <div className="space-x-2">
-            <button className="bg-white text-gray-700 px-4 py-2 rounded-full shadow-md">
-              Import
+            <button className="bg-white border border-gray-300 rounded-full px-6 py-2 shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50">
+              Print
             </button>
-            <button className="bg-white text-gray-700 px-4 py-2 rounded-full shadow-md">
+            <button className="bg-white border border-gray-300 rounded-full px-4 py-2 shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50">
               Export
             </button>
           </div>

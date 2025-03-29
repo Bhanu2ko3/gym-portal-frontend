@@ -2,7 +2,7 @@ import React from "react";
 
 const tab = () => {
   return (
-    <div className="bg-gray-100 p-4 min-h-screen">
+    <div className="bg-gray-100 p-4 ">
       <div className="max-w-7xl mx-auto">
         {/* Navigation */}
         <div className="flex justify-between items-center mb-4">

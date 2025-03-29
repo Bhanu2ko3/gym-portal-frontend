@@ -112,16 +112,16 @@ const EnhancedMembersTable = () => {
   };
 
   return (
-    <div className="w-full h-screen flex flex-col rounded-lg shadow-lg p-4">
+    <div className="w-full h-screen  flex flex-col rounded-lg shadow-lg p-4 ">
       {/* Tab Navigation */}
       <div className="border-b border-gray-200">
         <nav className="flex space-x-8">
           {tabs.map((tab) => (
             <button
               key={tab}
-              className={`py-4 px-1 text-sm font-medium border-b-2 ${
+              className={`py-4 px-3 text-sm font-medium border-b-3   ${
                 activeTab === tab
-                  ? "border-blue-500 text-blue-600"
+                  ? "border-[var(--primary-color)] text-[var(--primary-color)]"
                   : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
               }`}
               onClick={() => setActiveTab(tab)}

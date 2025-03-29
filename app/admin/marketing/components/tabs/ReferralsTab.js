@@ -2,13 +2,14 @@ import React from "react";
 
 const ReferralsTab = () => {
   return (
-    <div className="bg-gray-100 flex w-full ">
-      <div className="bg-white rounded-lg shadow p-6 w-full max-w-4xl">
+    
+    <div className="bg-gray-100 mt-4 w-full ml-3  ">
+      <div className="bg-white rounded-lg shadow p-6 h-100">
         {/* Header */}
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-semibold">Referrals</h2>
           <div className="space-x-2">
-            <button className="bg-white border border-gray-300 rounded-full px-4 py-2 shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50">
+            <button className="bg-white border border-gray-300 rounded-full px-6 py-2 shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50">
               Print
             </button>
             <button className="bg-white border border-gray-300 rounded-full px-4 py-2 shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50">

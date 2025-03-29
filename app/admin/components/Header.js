@@ -27,7 +27,7 @@ const DashboardHeader = ({ onSearch, searchQuery: propSearchQuery }) => {
           </div>
           <input
             type="text"
-            className="w-full py-2 px-4 pr-10 bg-white border border-gray-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full py-2 px-4 pr-10 bg-white border border-gray-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[var(--quaternary-color)] focus:border-transparent"
             placeholder="Search anything here..."
             onChange={handleSearch}
           />

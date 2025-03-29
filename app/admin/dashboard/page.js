@@ -13,7 +13,7 @@ export default function Dashboard() {
   const notifications = [];
 
   return (
-    <div className="flex h-screen bg-[var(--tertiary-color)]">
+    <div className="flex  bg-[var(--tertiary-color)] h-screen">
       <div className="flex-1 flex flex-col overflow-hidden">
         <main className="flex-1 overflow-auto bg-[var(--tertiary-color)]">
           <div className="py-6 px-4 sm:px-6 lg:px-8">
@@ -28,7 +28,7 @@ export default function Dashboard() {
             </div>
 
             {/* Schedule Today Section */}
-            <div className="bg-white rounded-lg shadow-sm p-4 h-165">
+            <div className="bg-white rounded-lg shadow-sm p-4 ">
               <h2 className="text-lg font-medium mb-4">Schedule Today</h2>
               <div className="min-h-80">
                 {scheduleItems.length > 0 ? (
@@ -47,7 +47,7 @@ export default function Dashboard() {
       </div>
 
       {/* Notifications Panel */}
-      <div className="w-64  bg-white mt-6 mr-3 mb-40 shadow-md rounded-lg">
+      <div className="w-64  bg-white mt-6 mr-3 mb-6 shadow-md rounded-lg">
         <div className="p-4 border-b border-gray-200">
           <h2 className="font-medium">Notifications</h2>
         </div>
