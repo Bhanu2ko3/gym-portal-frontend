@@ -1,72 +1,178 @@
 import React from "react";
+import { Bar } from "react-chartjs-2";
+import { Chart } from "chart.js";
+import annotationPlugin from "chartjs-plugin-annotation";
+import "chart.js/auto";
 
+Chart.register(annotationPlugin);
 const tab = () => {
+  //  Sample attendance data
+  const attendanceData = {
+    labels: [
+      "Day 1",
+      "Day 2",
+      "Day 3",
+      "Day 4",
+      "Day 5",
+      "Day 6",
+      "Day 7",
+      "Day 8",
+      "Day 9",
+      "Day 10",
+      "Day 11",
+      "Day 12",
+      "Day 13",
+      "Day 14",
+    ],
+    datasets: [
+      {
+        label: "Attendance",
+        data: [
+          120, 200, 130, 80, 40, 100, 180, 90, 150, 110, 170, 140, 200, 250,
+        ],
+        backgroundColor: "#2196F3",
+        borderRadius: 10,
+        barThickness: 8,
+      },
+    ],
+  };
+
+  // Chart options (Fix annotations & improve styles)
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        grid: {
+          display: true, // Ensure grid is enabled for the X-axis
+          color: "white", // Lighter gray color for grid lines
+          borderDash: [5, 5], // Set the dash pattern for the X-axis grid
+          borderWidth: 1, // Line width for the grid
+        },
+        ticks: {
+          color: "white", // Color of the ticks (labels)
+          font: {
+            size: 14,
+            weight: "bold",
+            family: "Arial",
+          },
+        },
+      },
+      y: {
+        grid: {
+          color: "#D3D3D3", // Softer gray for grid lines
+          borderDash: [4, 4], // Dashed lines for the Y-axis grid
+          borderWidth: 1, // Line width for the grid
+        },
+        ticks: {
+          color: "#444", // Color of the ticks (labels)
+          font: {
+            size: 14,
+            weight: "bold",
+            family: "Arial",
+          },
+          stepSize: 100, // More precise Y-axis steps
+        },
+      },
+    },
+
+    plugins: {
+      title: {
+        display: true,
+        font: { size: 18, weight: "bold" },
+        color: "#333",
+        padding: 15,
+      },
+      legend: { display: false },
+      tooltip: {
+        enabled: true,
+        backgroundColor: "rgba(0,0,0,0.8)",
+        titleColor: "#FFF",
+        bodyColor: "#FFF",
+        padding: 5,
+        displayColors: false,
+      },
+      annotation: {
+        annotations: attendanceData.datasets[0].data.map((value, index) => ({
+          type: "point",
+          xValue: index,
+          yValue: value,
+          backgroundColor: "#000", // Black dot
+          borderColor: "#FFF", // White border
+          borderWidth: 2, // Border thickness
+          radius: 7, // Dot size
+        })),
+      },
+    },
+  };
+
   return (
     <div className="bg-gray-100 p-4 ">
       <div className="max-w-7xl mx-auto">
         {/* Navigation */}
-        <div className="flex justify-between items-center mb-4">
-          <div className="flex space-x-4">
-            <button className="bg-blue-100 text-blue-700 px-4 py-2 rounded">
+        <div className="flex justify-between items-center mb-4 ">
+          <div className="flex space-x-4 bg-blue-100 rounded-lg">
+            <button className="bg-blue-100 text-[var(--primary-color)] px-4 py-2 rounded-lg">
               All Payment
             </button>
-            <button className="bg-blue-100 text-blue-700 px-4 py-2 rounded">
+            <button className="bg-blue-100 text-[var(--primary-color)] px-4 py-2 rounded-lg ">
               Produce Revenue
             </button>
-            <button className="bg-blue-100 text-blue-700 px-4 py-2 rounded">
+            <button className="bg-blue-100 text-[var(--primary-color)] px-4 py-2 rounded-lg">
               Member Balances
             </button>
           </div>
-          <div className="bg-blue-100 text-blue-700 px-4 py-2 rounded">
+          <div className="bg-blue-100 text-[var(--primary-color)] rounded-lg px-4 py-2  ">
             01/01/2025 - 01/07/2025
           </div>
         </div>
 
         {/* Summary Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-          <div className="bg-blue-100 p-4 rounded">
-            <div className="text-gray-600">Total Revenue</div>
-            <div className="text-4xl font-bold">ZMK 635</div>
+        <div className="grid grid-cols-4 gap-4 mb-4">
+          <div className="bg-blue-100 p-4 rounded-lg shadow-md">
+            <div className="text-[var(--primary-color)]">Total Revenue</div>
+            <div className="text-xl font-bold">ZMK <span className="text-3xl"> 635 </span> </div>
           </div>
-          <div className="bg-white p-4 rounded shadow">
-            <div className="text-gray-600">ZMK 635</div>
-            <div className="text-gray-400">Base Amount</div>
+          
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <div className="text-gray-600">ZMK <span className="text-3xl"> 635 </span></div>
+            <div className="text-[var(--primary-color)]">Base Amount</div>
           </div>
-          <div className="bg-white p-4 rounded shadow">
-            <div className="text-gray-600">ZMK 635</div>
-            <div className="text-gray-400">Taxes & Fees</div>
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <div className="text-gray-600">ZMK <span className="text-3xl"> 635 </span></div>
+            <div className="text-[var(--primary-color)]">Taxes & Fees</div>
           </div>
-          <div className="bg-white p-4 rounded shadow">
-            <div className="text-gray-600">ZMK 635</div>
-            <div className="text-gray-400">Refunds</div>
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <div className="text-gray-600">ZMK <span className="text-3xl"> 635 </span></div>
+            <div className="text-[var(--primary-color)]">Refunds</div>
           </div>
         </div>
 
         {/* Revenue Chart */}
-        <div className="bg-white p-4 rounded shadow mb-4">
+        <div className="bg-white p-6 rounded-lg shadow-md mb-4">
           <div className="flex justify-between items-center mb-4">
-            <div className="text-gray-600 font-bold">Revenue</div>
+            <div className="text-gray-600 font-medium ml-3">Revenue</div>
             <div className="text-gray-400">
               Month <i className="fas fa-chevron-down"></i>
             </div>
           </div>
-          <img
-            src="https://storage.googleapis.com/a1aa/image/U4sjJvPQoLKF_JihjdMQ6Otnya50E-TO_a9pEB5mMOM.jpg"
-            alt="Bar chart showing revenue data"
-            width="600"
-            height="300"
-          />
+          <div className="mt-4 relative">
+            <div className="border-b-2  border-gray-200"></div>
+            <div className="h-[250px] ">
+              <Bar data={attendanceData} options={options} />
+            </div>
+          </div>
         </div>
 
         {/* Transactions */}
-        <div className="bg-white p-4 rounded shadow">
+        <div className="bg-white p-6 rounded-lg shadow-md h-50">
           <div className="flex justify-between items-center mb-4">
-            <div className="text-gray-600 font-bold">Transactions</div>
-            <button className="bg-gray-200 text-gray-600 px-4 py-2 rounded">
+            <div className="text-gray-600 font-medium ml-3">Transactions</div>
+            <button className="bg-white border border-gray-300 text-gray-600 hover:bg-gray-200 transition duration-300 py-2 px-6 rounded-full shadow">
               Export
             </button>
           </div>
-          <div className="text-gray-400">No transactions found.</div>
+          <div className="text-gray-400 text-center mt-7">No transactions found.</div>
         </div>
       </div>
     </div>

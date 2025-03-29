@@ -81,21 +81,21 @@ const OverviewTab = () => {
           {/* Totals - 3 Circles */}
 
           <div>
-          <p className="text-gray-700 text-lg mb-4">Totals</p>
-          </div>
-          <div className="grid grid-cols-3 gap-4">
-            {["Scheduled", "Paid", "Overdue"].map((label, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <div className="w-24 h-24 flex items-center justify-center border-2 border-gray-300 rounded-full">
-                  <span className="text-gray-500 text-lg">
-                    ZMK
-                    <br />
-                    0.00
-                  </span>
+            <p className="text-gray-700 text-lg mb-4">Totals</p>
+            <div className="grid grid-cols-3 gap-4">
+              {["Scheduled", "Paid", "Overdue"].map((label, index) => (
+                <div key={index} className="flex flex-col items-center">
+                  <div className="w-24 h-24 flex items-center justify-center border-5 border-gray-300 rounded-full">
+                    <span className="text-gray-500 text-lg">
+                      ZMK
+                      <br />
+                      0.00
+                    </span>
+                  </div>
+                  <span className="text-gray-500 mt-2">{label}</span>
                 </div>
-                <span className="text-gray-500 mt-2">{label}</span>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           {/* Graph Section */}
@@ -122,7 +122,7 @@ const OverviewTab = () => {
         </div>
 
         {/* Recent Payments Section */}
-        <div className="bg-white p-6 rounded-lg shadow">
+        <div className="bg-white p-6 rounded-lg shadow h-70">
           <div className="flex justify-between items-center mb-4">
             <span className="text-gray-700 text-lg">Recent Payments</span>
             <Button
@@ -130,7 +130,7 @@ const OverviewTab = () => {
               onClick={() => console.log("Clicked!")}
             />
           </div>
-          <div className="text-center text-gray-400">No payments found.</div>
+          <div className="text-center mt-20 text-gray-400">No payments found.</div>
         </div>
       </div>
     </div>
