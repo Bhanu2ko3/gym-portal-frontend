@@ -7,7 +7,7 @@ const DocumentsTab = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <div className="max-w-7xl mx-auto p-6 bg-white rounded-lg shadow-md mt-4">
+    <div className="max-w-7xl mx-auto p-6 bg-white rounded-lg shadow-md h-100">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-[var(--primary-color)] text-lg font-semibold">
           Document Templates
@@ -32,7 +32,7 @@ const DocumentsTab = () => {
       </div>
       <table className="min-w-full bg-white border-b border-gray-200">
         <thead>
-          <tr className="w-full text-left text-gray-500  text-sm border-b-1 border-gray-200 font-medium tracking-wider ">
+          <tr className="w-full text-left  text-gray-500 border-b-1 border-gray-200  tracking-wider ">
             <th className="py-3 px-6">Document</th>
             <th className="py-3 px-6">Members</th>
             <th className="py-3 px-6">Signatures</th>
@@ -63,14 +63,14 @@ const DocumentsTab = () => {
           ].map((item, index) => (
             <tr
               key={index}
-              className="border-b border-gray-200 hover:bg-gray-100"
+              className="border-b border-gray-200 hover:bg-gray-100 transition duration-300"
             >
               <td className="py-3 px-6">{item.doc}</td>
               <td className="py-3 px-6">{item.members}</td>
               <td className="py-3 px-6">{item.signatures}</td>
               <td className="py-3 px-6">{item.date}</td>
-              <td className="py-3 px-10 ">
-                <i className="fas fa-ellipsis-h"></i>
+              <td className="py-3 px-10 bg-">
+                <i className="fas fa-ellipsis-h "></i>
               </td>
             </tr>
           ))}

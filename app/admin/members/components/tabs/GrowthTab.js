@@ -108,7 +108,7 @@ const GrowthTab = () => {
   };
 
   return (
-    <div className="bg-gray-100 mt-4">
+    <div className="bg-gray-100 ">
       <div className=" mx-auto">
         {/* Active Members Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">

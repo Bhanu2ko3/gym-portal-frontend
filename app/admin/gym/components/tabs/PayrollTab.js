@@ -15,16 +15,16 @@ const PayrollTab = () => {
   };
 
   return (
-    <div className="bg-gray-100 flex items-center justify-center mt-4 ">
+    <div className="h-screen">
       <div className="bg-white shadow-md rounded-lg p-6 w-full h-100 ">
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-lg font-medium">Payroll Report</h1>
-          <div className="flex space-x-2">
-            <span className="bg-blue-100 text-blue-600 px-3 p-2 rounded-xl">
+          <h1 className="text-lg text-gray-700 ml-3 font-medium">Payroll Report</h1>
+          <div className="flex space-x-3">
+            <span className="bg-blue-100 text-[var(--primary-color)] px-3 p-2 rounded-xl">
               {dateRange}
             </span>
             <button
-              className="bg-white text-gray-700 border hover:bg-gray-200 transition duration-300 border-gray-300 px-4 py-2 rounded-full shadow-sm"
+              className="bg-white text-gray-700 border cursor-pointer hover:bg-gray-200 transition duration-300 border-gray-300 px-4 py-2 rounded-full shadow-sm"
               onClick={handleChangeDates}
             >
               Change Dates

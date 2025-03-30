@@ -16,7 +16,7 @@ const ProgramsTab = () => {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
+    <div className="max-w-4xl mx-auto mt-4 h-screen">
       <div className="flex justify-between items-center mb-6">
         <div>
           <h1 className="text-xl font-medium text-gray-800">Manage Programs, Levels and Ranks</h1>

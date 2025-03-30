@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import { Bar } from "react-chartjs-2";
+import { useState } from "react";
 import "chart.js/auto";
 import Button from "../../../components/Button"; // Adjust this based on your project structure
 
@@ -74,43 +77,56 @@ const options = {
 };
 
 const OverviewTab = () => {
+  const [active, setActive] = useState("Day");
+  const data = [
+    { label: "Scheduled", value: 100.0 },
+    { label: "Paid", value: 250.5 },
+    { label: "Overdue", value: 75.25 },
+  ];
+
   return (
-    <div className="p-6">
+    <div className="">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-          {/* Totals - 3 Circles */}
-
-          <div>
-            <p className="text-gray-700 text-lg mb-4">Totals</p>
+          <div className="bg-[var(--box-color)] p-5 rounded-lg shadow-md">
+            <p className="text-gray-600 font-semibold text-lg ml-2 mb-4">Totals</p>
             <div className="grid grid-cols-3 gap-4">
-              {["Scheduled", "Paid", "Overdue"].map((label, index) => (
+              {data.map((item, index) => (
                 <div key={index} className="flex flex-col items-center">
-                  <div className="w-24 h-24 flex items-center justify-center border-5 border-gray-300 rounded-full">
-                    <span className="text-gray-500 text-lg">
+                  <div className="w-24 h-24 flex items-center justify-center border-5 border-gray-400 rounded-full">
+                    <span className="text-gray-500 text-lg text-center">
                       ZMK
                       <br />
-                      0.00
+                      {item.value.toFixed(2)}{" "}
+                      {/* Formats value to 2 decimal places */}
                     </span>
                   </div>
-                  <span className="text-gray-500 mt-2">{label}</span>
+                  <span className="text-gray-500 mt-2">{item.label}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Graph Section */}
-          <div className="bg-white p-4 rounded-lg shadow col-span-2">
+          <div className="bg-white p-4 rounded-lg shadow-md col-span-2">
             <div className="flex justify-between items-center mb-4">
-              <span className="text-gray-700">Revenue</span>
-              <div className="flex space-x-2">
-                {["Day", "Week", "Month"].map((label) => (
-                  <button
-                    key={label}
-                    className="text-xs text-gray-500 bg-gray-200 px-2 py-1 rounded"
-                  >
-                    {label}
-                  </button>
-                ))}
+              <span className="text-gray-700 ml-3">Revenue</span>
+              <div className="bg-[var(--box-color)] p-2 rounded-lg shadow-md">
+                <div className="flex space-x-2">
+                  {["Day", "Week", "Month"].map((label) => (
+                    <button
+                      key={label}
+                      onClick={() => setActive(label)}
+                      className={`text-xs px-3 py-1 rounded cursor-pointer ${
+                        active === label
+                          ? "bg-white text-[var(--primary-color)]"
+                          : "bg-gray-200 text-gray-500"
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -122,15 +138,17 @@ const OverviewTab = () => {
         </div>
 
         {/* Recent Payments Section */}
-        <div className="bg-white p-6 rounded-lg shadow h-70">
-          <div className="flex justify-between items-center mb-4">
-            <span className="text-gray-700 text-lg">Recent Payments</span>
+        <div className="bg-white p-6 rounded-lg shadow-md h-80">
+          <div className="flex justify-between items-center">
+            <span className="text-gray-700 text-lg ml-3">Recent Payments</span>
             <Button
               text="All Payments"
               onClick={() => console.log("Clicked!")}
             />
           </div>
-          <div className="text-center mt-20 text-gray-400">No payments found.</div>
+          <div className="text-center mt-20 text-gray-400">
+            No payments found.
+          </div>
         </div>
       </div>
     </div>

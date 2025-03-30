@@ -21,10 +21,10 @@ const MembersTab = ({
   }, [members]);
 
   return (
-    <div className="bg-white rounded-lg shadow overflow-hidden mt-4">
+    <div className="bg-white rounded-lg shadow overflow-hidden h-100">
       {/* Header Section */}
       <div className="flex justify-between items-center px-6 py-4 bg-gray-50">
-        <h2 className="text-lg font-semibold text-gray-700">Members</h2>
+        <h2 className="text-lg font-semibold text-gray-700 ml-3">Members</h2>
 
         {/* Search */}
         <div className="relative">
@@ -53,31 +53,31 @@ const MembersTab = ({
                 onChange={toggleSelectAll} // Ensure this function is defined
               />
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+            <th className="px-6 py-3 text-left  font-medium text-gray-500 tracking-wider">
               ID
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+            <th className="px-6 py-3 text-left  font-medium text-gray-500 tracking-wider">
               <div className="flex items-center">
                 Name
-                <ChevronDown className="ml-1 h-4 w-4" />
+                <ChevronDown className="ml-2 mt-1 h-4 w-4" />
               </div>
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+            <th className="px-6 py-3 text-left  font-medium text-gray-500 tracking-wider">
               Contact
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+            <th className="px-6 py-3 text-left  font-medium text-gray-500 tracking-wider">
               Email
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+            <th className="px-6 py-3 text-left  font-medium text-gray-500 tracking-wider">
               Age
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+            <th className="px-6 py-3 text-left  font-medium text-gray-500 tracking-wider">
               Gender
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+            <th className="px-6 py-3 text-left  font-medium text-gray-500 tracking-wider">
               Residence
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+            <th className="px-6 py-3 text-left  font-medium text-gray-500 tracking-wider">
               Actions
             </th>
           </tr>
@@ -91,7 +91,7 @@ const MembersTab = ({
             </tr>
           ) : (
             filteredMembers.map((member) => (
-              <tr key={member.id} className="hover:bg-gray-50 text-gray-700">
+              <tr key={member.id} className="hover:bg-gray-100 transition duration-300 text-gray-700">
                 <td className="px-6 py-4 whitespace-nowrap">
                   <input
                     type="checkbox"
@@ -123,8 +123,8 @@ const MembersTab = ({
                 <td className="px-6 py-4 whitespace-nowrap text-sm">
                   {member.residence}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm ">
-                  <button className="text-[var(--primary-color)] hover:text-[var(--primary-color)]">
+                <td className="px-6 py-4 whitespace-nowrap- text-sm ">
+                  <button className="text-[var(--primary-color)] hover:text-[var(--primary-color)] cursor-pointer">
                     <MoreHorizontal className="h-5 w-5" />
                   </button>
                 </td>

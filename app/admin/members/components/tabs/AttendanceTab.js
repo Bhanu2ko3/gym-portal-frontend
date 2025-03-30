@@ -3,7 +3,10 @@ import AttendanceTabBar from './AttendanceTabBar'
 
 const AttendanceTab = () => {
   return (
-    <AttendanceTabBar/>
+    <div className='bg-[var(--tertiary-color)]'>
+      <AttendanceTabBar/>
+    </div>
+    
   )
 }
 

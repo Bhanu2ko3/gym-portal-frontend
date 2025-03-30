@@ -2,13 +2,13 @@ import React from 'react';
 
 const CheckInsTab = () => {
   return (
-    <div className="bg-gray-100 flex items-center justify-center mt-4 ">
+    <div className="bg-gray-100 flex items-center justify-center  ">
       <div className="bg-white rounded-lg shadow-lg p-6 w-full ">
         <div className="flex justify-end space-x-4 mb-4">
-          <button className="bg-white border border-gray-300 rounded-full px-6 py-2 shadow-sm hover:bg-gray-100 transition duration-300">
+          <button className="bg-white border cursor-pointer text-gray-700 border-gray-300 rounded-full px-6 py-2 shadow-sm hover:bg-gray-100 transition duration-300">
             Print
           </button>
-          <button className="bg-white border border-gray-300 rounded-full px-4 py-2 shadow-sm hover:bg-gray-100 transition duration-300">
+          <button className="bg-white border border-gray-300 text-gray-700 cursor-pointer rounded-full px-4 py-2 shadow-sm hover:bg-gray-100 transition duration-300">
             Export
           </button>
         </div>

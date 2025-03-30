@@ -14,7 +14,7 @@ const IntegrationsSettings = () => {
 
   return (
     <div className=" flex items-center justify-center ">
-      <div className="w-full p-6  rounded-lg ">
+      <div className="w-full  rounded-lg ">
         <h2 className="text-lg font-medium mb-1 ml-5">Integrations</h2>
         <p className="text-gray-500 mb-6 ml-5">
           Connect your Gymdesk account to available integrations.
@@ -51,7 +51,7 @@ const IntegrationsSettings = () => {
                 />
               </div>
             </div>
-            <div className="flex justify-center mt-15 mb-10">
+            <div className="flex justify-center mt-10">
               <Button
                 text="Save Settings"
                 onClick={() => console.log("Clicked!")}

@@ -20,6 +20,13 @@ const ManagersStaffTab = () => {
       permissions: "All",
       added: "Jan 15, 2025", // Fixed invalid date
     },
+    {
+      id: "1573",
+      name: "Bhanuka",
+      role: "Owner",
+      permissions: "All",
+      added: "Jan 15, 2025", // Fixed invalid date
+    },
   ];
 
   // Ensure filtered members are updated when searchQuery changes
@@ -28,14 +35,12 @@ const ManagersStaffTab = () => {
   );
 
   return (
-    <div className="bg-gray-100 mt-4 ">
+    <div className="h-screen">
       {" "}
-      {/* Apply h-full here */}
       <div className="bg-white rounded-lg shadow-md p-6 h-100">
         {" "}
-        {/* Ensures full height */}
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-xl font-medium ml-3">Gym Staff</h1>
+          <h1 className="text-lg text-gray-700 font-medium ml-3">Gym Staff</h1>
           <div className="flex items-center space-x-4">
             {/* Search */}
             <div className="relative">
@@ -58,7 +63,7 @@ const ManagersStaffTab = () => {
         </div>
         <table className="w-full text-left ">
           <thead>
-            <tr className="border-b-3 border-[var(--quaternary-color)] font-medium text-gray-600">
+            <tr className="border-b-3 border-[var(--quaternary-color)] font-medium text-gray-500">
               <th className="py-2 px-4">
                 <input type="checkbox" />
               </th>
@@ -74,7 +79,7 @@ const ManagersStaffTab = () => {
             {filteredMembers.map((staff) => (
               <tr
                 key={staff.id}
-                className="border-b border-gray-200 hover:bg-gray-50"
+                className="border-b border-gray-200 hover:bg-gray-100 transform duration-300"
               >
                 <td className="py-2 px-4">
                   <input type="checkbox" />

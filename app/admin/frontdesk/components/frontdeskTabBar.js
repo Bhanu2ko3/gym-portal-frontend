@@ -20,32 +20,28 @@ const FrontdeskTabBar = () => {
   };
 
   return (
-    <div className="w-full h-screen  flex flex-col rounded-lg shadow-lg p-4 ">
+    <div className="w-full  flex flex-col rounded-lg py-10 px-6 ">
       {/* Tab Navigation */}
-      <div className="border-b border-gray-200">
-        <nav className="flex space-x-8">
+      <div className=" ml-4 ">
+        <nav className="flex  space-x-8 border-b border-[var(--quaternary-color)] mr-68 ">
           {tabs.map((tab) => (
             <button
               key={tab}
-              className={`py-4 px-3 text-sm font-medium border-b-3   ${
+              className={`pb-2  text-sm font-semibold border-b-3  ${
                 activeTab === tab
-                  ? "border-[var(--primary-color)] text-[var(--primary-color)]"
-                  : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                  ? "text-[var(--primary-color)] px-2 font-bold"
+                  : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 "
               }`}
               onClick={() => setActiveTab(tab)}
             >
               {tab}
             </button>
           ))}
-          {/* Log Out */}
-          <div className="flex justify-end flex-1">
-            <button className="text-black  cursor-pointer px-4 ">Log Out</button>
-          </div>
         </nav>
       </div>
 
       {/* Tab Content */}
-      <div className="flex-1 overflow-auto">{renderTabContent()}</div>
+      <div className="mt-5">{renderTabContent()}</div>
     </div>
   );
 };

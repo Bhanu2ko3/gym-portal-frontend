@@ -42,11 +42,6 @@
       "static/chunks/main-app.js",
       "static/chunks/app/admin/sales/page.js"
     ],
-    "/admin/gym/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/gym/page.js"
-    ],
     "/admin/settings/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -57,6 +52,11 @@
       "static/chunks/main-app.js",
       "static/css/app/admin/frontdesk/page.css",
       "static/chunks/app/admin/frontdesk/page.js"
+    ],
+    "/admin/gym/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/admin/gym/page.js"
     ]
   }
 }

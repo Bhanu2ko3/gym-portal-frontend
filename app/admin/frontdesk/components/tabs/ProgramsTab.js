@@ -21,13 +21,54 @@ const MemberDetails = () => {
     confirmCheckInCode: "",
   });
 
+  const validate = () => {
+    let newErrors = {};
+  
+    if (!formData.firstName.trim()) newErrors.firstName = "First name is required";
+    if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
+    if (!formData.phoneNumber.trim()) newErrors.phoneNumber = "Phone number is required";
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Invalid email format";
+    }
+  
+    if (formData.phoneNumber && !/^\d{10}$/.test(formData.phoneNumber)) {
+      newErrors.phoneNumber = "Phone number must be 10 digits";
+    }
+  
+    if (formData.secondaryPhone && !/^\d{10}$/.test(formData.secondaryPhone)) {
+      newErrors.secondaryPhone = "Phone number must be 10 digits";
+    }
+  
+    if (formData.checkInCode !== formData.confirmCheckInCode) {
+      newErrors.confirmCheckInCode = "Check-in codes do not match";
+    }
+  
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  
+    // Live validation
+    validate();
   };
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validate()) {
+      console.log("Form Submitted Successfully!", formData);
+    }
+  };
+  
+
+  
 
   return (
-    <div className="mt-4 rounded-lg">
+    <div className="rounded-lg h-full">
       <div className="pt-4 bg-white shadow-md rounded-lg p-6">
         <h2 className="text-xl font-medium mb-4 pb-4">Member Details</h2>
         <div className="flex items-center mb-4">
@@ -182,10 +223,10 @@ const MemberDetails = () => {
           <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center">
             <i className="fas fa-camera text-2xl text-gray-500"></i>
           </div>
-          <button className="bg-white border border-gray-300 text-gray-600 hover:bg-gray-200 transition duration-300 py-2 px-4 rounded-full shadow">
+          <button className="bg-white border border-gray-300 cursor-pointer text-gray-600 hover:bg-gray-200 transition duration-300 py-2 px-4 rounded-full shadow">
             Capture from camera
           </button>
-          <button className="bg-white border border-gray-300 text-gray-600 hover:bg-gray-200 transition duration-300 py-2 px-6 rounded-full shadow">
+          <button className="bg-white border border-gray-300 text-gray-600 cursor-pointer hover:bg-gray-200 transition duration-300 py-2 px-6 rounded-full shadow">
             Upload Photo
           </button>
         </div>

@@ -1,17 +1,17 @@
-"use client"
-import React, { useState } from 'react';
-import Sidebar from './components/sidebar';
-import DashboardHeader from './components/Header';
+"use client";
+import React, { useState } from "react";
+import Sidebar from "./components/sidebar";
+import DashboardHeader from "./components/Header";
 
 export default function Layout({ children }) {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedTab, setSelectedTab] = useState(""); // Initialize the selectedTab state
 
   const handleSidebarItemClick = (itemName) => {
-    setSearchQuery(itemName);
+    setSelectedTab(itemName);
   };
 
   const handleSearch = (query) => {
-    setSearchQuery(query);
+    setSelectedTab(query);
   };
 
   return (
@@ -24,7 +24,7 @@ export default function Layout({ children }) {
       {/* Main Content */}
       <div className="flex-1 overflow-y-auto">
         {/* Dashboard Header with Search Bar */}
-        <DashboardHeader onSearch={handleSearch} searchQuery={searchQuery} />
+        <DashboardHeader onSearch={handleSearch} selectedTab={selectedTab} />
 
         {/* Page Content */}
         {children}

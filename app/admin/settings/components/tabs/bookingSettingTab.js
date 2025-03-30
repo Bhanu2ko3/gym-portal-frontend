@@ -32,7 +32,7 @@ const BookingsSettings = () => {
     setSettings((prev) => ({ ...prev, [id]: !prev[id] }));
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-6  h-full w-full mx-auto">
+    <div className="bg-white shadow-md rounded-lg p-6 w-full mx-auto">
       <h2 className="text-xl font-medium mb-4 border-b-3 pb-2 border-gray-100">
         Bookings Settings
       </h2>

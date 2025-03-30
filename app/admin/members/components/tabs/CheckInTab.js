@@ -18,14 +18,14 @@ export default function Widget() {
   };
 
   return (
-    <div className="flex justify-center items-center mt-4">
+    <div className="flex justify-center items-center ">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Today's Sessions */}
           <div className="bg-white p-4 rounded-lg shadow-md">
-            <h2 className="text-lg font-semibold mb-4">Today's Sessions</h2>
-            <p className="text-gray-400 mb-4">No upcoming sessions</p>
-            <div className="flex justify-center mt-110">
+            <h2 className="text-lg  mb-4 ml-2 text-gray-700">Today's Sessions</h2>
+            <p className="text-gray-400 mt-50 text-center">No upcoming sessions</p>
+            <div className="flex justify-center mt-60">
               {" "}
               <Button text="Add Session" onClick={() => console.log("Clicked!")} />
             </div>
@@ -86,9 +86,9 @@ export default function Widget() {
 
           {/* Recent Check-ins */}
           <div className="bg-white p-4 rounded-lg shadow-md">
-            <h2 className="text-lg font-semibold mb-4">Recent Check-ins</h2>
-            <p className="text-gray-400 mb-4">No check-ins yet today</p>
-            <div className="flex justify-center mt-110">
+            <h2 className="text-lg ml-2 mb-4 text-gray-700">Recent Check-ins</h2>
+            <p className="text-gray-400 mt-50 text-center">No check-ins yet today</p>
+            <div className="flex justify-center mt-60">
               {" "}
               <Button text="Check In" icon="fas fa-arrow-right"  />
             </div>

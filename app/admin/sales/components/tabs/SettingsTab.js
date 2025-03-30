@@ -4,7 +4,7 @@ import SettingTab from "../../../settings/components/tabs/saleSettingTab";
 
 const SettingsTab = () => {
   return (
-    <div className='mt-4'><SettingTab/></div>
+    <div className=''><SettingTab/></div>
   )
 }
 

@@ -3,7 +3,7 @@ import Button from "../../../components/Button";
 
 const ProductsTab = () => {
   return (
-    <div className="bg-gray-100 flex items-center justify-center mt-4 ml-3">
+    <div className="bg-gray-100 flex items-center justify-center ">
       <div className="bg-white shadow-md rounded-lg p-6 w-full  ">
         {/* Header with buttons */}
         <div className="flex justify-between items-center mb-6 ">
@@ -11,11 +11,11 @@ const ProductsTab = () => {
             text="Create Product"
             onClick={() => console.log("Clicked!")}
           />
-          <div className="space-x-2">
-            <button className="bg-white border border-gray-300 text-gray-700 hover:bg-gray-200 transition duration-300 py-2 px-4 rounded-full">
+          <div className="space-x-3">
+            <button className="bg-white border cursor-pointer border-gray-300 text-gray-700 hover:bg-gray-200 transition duration-300 py-2 px-4 rounded-full">
               Import
             </button>
-            <button className="bg-white border border-gray-300 text-gray-700 hover:bg-gray-200 transition duration-300 py-2 px-4 rounded-full">
+            <button className="bg-white border cursor-pointer border-gray-300 text-gray-700 hover:bg-gray-200 transition duration-300 py-2 px-4 rounded-full">
               Export
             </button>
           </div>

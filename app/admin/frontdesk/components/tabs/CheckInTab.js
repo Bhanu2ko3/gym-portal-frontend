@@ -18,17 +18,16 @@ export default function Widget() {
   };
 
   return (
-    <div className="flex justify-center items-center mt-4">
+    <div className="flex  h-screen ">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Today's Sessions */}
           <div className="bg-white p-4 rounded-lg shadow-md">
-            <h2 className="text-lg font-semibold mb-4">Today's Sessions</h2>
-            <p className="text-gray-400 mb-4">No upcoming sessions</p>
-            <div className="flex justify-center mt-110">
+            <h2 className="text-lg text-gray-700 mb-4 ml-2">Today's Sessions</h2>
+            <p className="text-gray-400 mt-50 text-center">No upcoming sessions</p>
+            <div className="flex justify-center mt-60">
               {" "}
-              <Button text="Add Session"   />
-              
+              <Button text="Add Session" onClick={() => console.log("Clicked!")} />
             </div>
           </div>
 
@@ -78,7 +77,7 @@ export default function Widget() {
 
             {/* Check-In Button */}
             <button
-              className="bg-green-700 text-white py-2 px-4 mb-10 rounded-full w-45 inset-shadow-amber-50 hover:shadow-xl transition-shadow duration-300"
+              className="bg-green-700 text-white py-2 px-4 rounded-full w-45 inset-shadow-amber-50 hover:shadow-xl transition-shadow duration-300"
               onClick={() => console.log("Final Check-in Code:", checkInCode)}
             >
               Check In <i className="fas fa-arrow-right"></i>
@@ -87,9 +86,9 @@ export default function Widget() {
 
           {/* Recent Check-ins */}
           <div className="bg-white p-4 rounded-lg shadow-md">
-            <h2 className="text-lg font-semibold mb-4">Recent Check-ins</h2>
-            <p className="text-gray-400 mb-4">No check-ins yet today</p>
-            <div className="flex justify-center mt-110">
+            <h2 className="text-lg ml-2 mb-4 text-gray-700">Recent Check-ins</h2>
+            <p className="text-gray-400 mt-50 text-center">No check-ins yet today</p>
+            <div className="flex justify-center mt-60">
               {" "}
               <Button text="Check In" icon="fas fa-arrow-right"  />
             </div>

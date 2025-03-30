@@ -108,7 +108,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="container mx-auto mt-6 px-4">
+    <div className="container mx-auto ">
       {/*  Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Card 1 */}

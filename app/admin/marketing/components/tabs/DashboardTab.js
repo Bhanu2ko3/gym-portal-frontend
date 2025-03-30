@@ -108,7 +108,7 @@ const DashboardTab = () => {
   };
 
   return (
-    <div className="bg-gray-100 p-6">
+    <div className="">
       {/* Grid Layout for Lead Generation & Signups */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         {/* Lead Generation Card */}

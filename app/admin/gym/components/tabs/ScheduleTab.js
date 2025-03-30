@@ -20,9 +20,10 @@ const ScheduleTab = () => {
   };
 
   return (
-    <div className="mt-4 p-6 bg-white rounded-lg shadow-md h-150">
+    <div className='h-screen'>
+      <div className="p-6 bg-white rounded-lg shadow-md h-150 ">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-xl font-medium">Gym Schedule</h1>
+        <h1 className="text-lg text-gray-700 ml-3 font-medium">Gym Schedule</h1>
         <Button text="Close GYM" onClick={handleCloseGym} />
         
       </div>
@@ -42,14 +43,14 @@ const ScheduleTab = () => {
       </div>
       <div className="flex justify-between items-center bg-[var(--quaternary-color)] p-2 rounded-lg mt-10">
         <button
-          className="text-gray-600 cursor-pointer"
+          className="text-gray-600 cursor-pointer ml-3"
           onClick={handlePrevious}
         >
           &lt; Previous
         </button>
         <span className="text-gray-600">{currentDateRange}</span>
         <button
-          className="text-gray-600 cursor-pointer"
+          className="text-gray-600 cursor-pointer mr-3"
           onClick={handleNext}
         >
           Next &gt;
@@ -85,6 +86,7 @@ const ScheduleTab = () => {
           <p className="text-xs">Saturday</p>
         </div>
       </div>
+    </div>
     </div>
   );
 };

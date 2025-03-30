@@ -8,8 +8,8 @@ import { Search } from "lucide-react";
 Chart.register(annotationPlugin);
 
 const tab = () => {
-  
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedOption, setSelectedOption] = useState("day");
 
   //  Sample attendance data
   const attendanceData = {
@@ -112,7 +112,7 @@ const tab = () => {
   };
 
   return (
-    <div className="bg-gray-100 p-4 ">
+    <div className="bg-gray-100 ">
       <div className=" mx-auto">
         {/* Navigation */}
         <div className="flex justify-between  items-center mb-4">
@@ -144,8 +144,16 @@ const tab = () => {
           <div className="bg-white p-6 rounded-lg shadow-md ">
             <div className="flex justify-between items-center ">
               <div className="text-gray-600 font-medium ml-3">Revenue</div>
-              <div className="text-gray-400">
-                Month <i className="fas fa-chevron-down"></i>
+              <div className="relative inline-block">
+                <select
+                  className="bg-white   text-gray-600 px-4 pr-8   focus:outline-none focus:ring-2 focus:ring-white"
+                  value={selectedOption}
+                  onChange={(e) => setSelectedOption(e.target.value)}
+                >
+                  <option value="day">Day</option>
+                  <option value="week">Week</option>
+                  <option value="month">Month</option>
+                </select>
               </div>
             </div>
             <div className=" relative">

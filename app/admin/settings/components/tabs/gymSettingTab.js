@@ -25,7 +25,7 @@ const GymSettings = () => {
   };
 
   return (
-    <div className="w-full p-6 rounded-lg">
+    <div className="w-full rounded-lg">
       <h1 className="text-lg font-medium mb-2 ml-5">Gym Settings</h1>
       <p className="text-gray-500 mb-6 ml-5">
         Change the gym name, address, time settings and more.
@@ -99,7 +99,7 @@ const GymSettings = () => {
             </div>
           </div>
 
-          <div className="flex justify-center mt-15 mb-10">
+          <div className="flex justify-center mt-10">
             <Button
             
               text="Save Settings"
