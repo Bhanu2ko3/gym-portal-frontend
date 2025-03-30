@@ -4,6 +4,7 @@ import { Chart } from "chart.js";
 import annotationPlugin from "chartjs-plugin-annotation";
 import "chart.js/auto";
 import { useState } from "react";
+import Lable from "../../../components/Lable";
 
 Chart.register(annotationPlugin);
 
@@ -186,14 +187,13 @@ const DashboardTab = () => {
       </div>
 
       {/* Acquisition Funnel Section */}
-      <div className="bg-white p-6 rounded-lg shadow mb-6">
+      <div className="bg-white py-6 pl-6 rounded-lg shadow mb-6">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg text-gray-700 font-medium">
             Acquisition Funnel
           </h2>
-          <div className="bg-[var(--primary-color)] text-white px-4 py-2 rounded-full">
-            12/07/2024 - 01/07/2025
-          </div>
+          <Lable label="12/07/2024 - 01/07/2025" />
+          
         </div>
         <p className="text-gray-400 mb-4 text-center">
           Member acquisition data was not found between the selected dates.

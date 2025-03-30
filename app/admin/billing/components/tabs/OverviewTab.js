@@ -7,6 +7,7 @@ import Button from "../../../components/Button"; // Adjust this based on your pr
 import { Bar } from "react-chartjs-2";
 import { Chart } from "chart.js";
 import "chart.js/auto";
+import Lable from "../../../components/Lable";
 
 Chart.register(annotationPlugin);
 
@@ -173,13 +174,11 @@ const OverviewTab = () => {
         </div>
 
         {/* Recent Payments Section */}
-        <div className="bg-white p-6 rounded-lg shadow-md h-80">
+        <div className="bg-white py-6 pl-4 rounded-lg shadow-md h-80">
           <div className="flex justify-between items-center">
-            <span className="text-gray-700 font-medium text-lg ml-3">Recent Payments</span>
-            <Button
-              text="All Payments"
-              onClick={() => console.log("Clicked!")}
-            />
+            <span className="text-gray-700 font-medium text-lg ml-4">Recent Payments</span>
+            <Lable label="All Payments" />
+            
           </div>
           <div className="text-center mt-20 text-gray-400">
             No payments found.

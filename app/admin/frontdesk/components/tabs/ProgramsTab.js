@@ -96,7 +96,7 @@ const MemberDetails = () => {
           </label>
           <Button
             text="Find Me"
-            className={"ml-185"}
+            className={" ml-auto"}
             onClick={() => console.log("Clicked!")}
           />
         </div>

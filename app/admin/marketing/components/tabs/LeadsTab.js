@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../../../components/Button";
+import Lable from "../../../components/Lable";
 
 const LeadsTab = () => {
   return (
@@ -7,6 +8,7 @@ const LeadsTab = () => {
       <div className="bg-white rounded-lg shadow-lg p-6 w-full h-100 ">
         {/* Header */}
         <div className="flex justify-between items-center mb-4">
+          
           <Button text="Create Lead" onClick={() => console.log("Clicked!")} />
           <div className="space-x-3">
             <button className="bg-white border cursor-pointer border-gray-300 text-gray-700 rounded-full px-6 py-2 shadow-sm hover:bg-gray-100 transition duration-300">

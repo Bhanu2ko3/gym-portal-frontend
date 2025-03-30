@@ -1,15 +1,17 @@
 import React from "react";
 import Button from "../../../components/Button";
+import Lable from "../../../components/Lable";
 
 const ContentTab = () => {
   return (
     <div className=" bg-white rounded-lg shadow-md w-full h-150  ">
       {/* Header Section */}
-      <div className="flex justify-between items-center bg-[var(--quinary-color)] p-4 rounded-t-lg">
+      <div className="flex justify-between items-center bg-[var(--quinary-color)] py-4 pl-4 rounded-t-lg">
         <h2 className="text-lg ml-3 font-semibold text-[var(--primary-color)]">
           Member Portal Content
         </h2>
-        <Button text="Add Rosters" onClick={() => console.log("Clicked!")} />
+        <Lable label="Add Rosters" />
+        
       </div>
 
       {/* Empty State Section */}
