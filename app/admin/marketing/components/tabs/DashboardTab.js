@@ -3,10 +3,15 @@ import { Bar } from "react-chartjs-2";
 import { Chart } from "chart.js";
 import annotationPlugin from "chartjs-plugin-annotation";
 import "chart.js/auto";
+import { useState } from "react";
 
 Chart.register(annotationPlugin);
 
 const DashboardTab = () => {
+  const [Aactive, setAActive] = useState("Day");
+  const [Bactive, setBActive] = useState("Day");
+  
+
   //  Sample attendance data
   const attendanceData = {
     labels: [
@@ -29,9 +34,9 @@ const DashboardTab = () => {
       {
         label: "Attendance",
         data: [
-          120, 200, 130, 80, 40, 100, 180, 90, 150, 110, 170, 140, 200, 250,
+          120, 200, 130, 80, 40, 100, 180, 90, 150, 110, 170, 350, 200, 250,
         ],
-        backgroundColor: "#2196F3",
+        backgroundColor: "#04668d",
         borderRadius: 10,
         barThickness: 8,
       },
@@ -114,13 +119,25 @@ const DashboardTab = () => {
         {/* Lead Generation Card */}
         <div className="bg-white p-6 rounded-lg shadow">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-lg font-semibold">Lead Generation</h2>
-            <div className="flex space-x-2">
-              <button className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full">
-                Day
-              </button>
-              <button className="text-gray-600 px-3 py-1">Week</button>
-              <button className="text-gray-600 px-3 py-1">Month</button>
+            <h2 className="text-lg text-gray-700 font-semibold">
+              Lead Generation
+            </h2>
+            <div className="bg-[var(--box-color)] p-2 rounded-lg shadow-md">
+              <div className="flex space-x-2">
+                {["Day", "Week", "Month"].map((label) => (
+                  <button
+                    key={label}
+                    onClick={() => setAActive(label)}
+                    className={`text-xs px-3 py-1 rounded cursor-pointer ${
+                      Aactive === label
+                        ? "bg-white text-[var(--primary-color)]"
+                        : "bg-gray-200 text-gray-500"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
           <div className="h-60">
@@ -137,13 +154,23 @@ const DashboardTab = () => {
         {/* New Signups Card */}
         <div className="bg-white p-6 rounded-lg shadow">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-lg font-semibold">New Signups</h2>
-            <div className="flex space-x-2">
-              <button className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full">
-                Day
-              </button>
-              <button className="text-gray-600 px-3 py-1">Week</button>
-              <button className="text-gray-600 px-3 py-1">Month</button>
+            <h2 className="text-lg text-gray-700 font-semibold">New Signups</h2>
+            <div className="bg-[var(--box-color)] p-2 rounded-lg shadow-md">
+              <div className="flex space-x-2">
+                {["Day", "Week", "Month"].map((label) => (
+                  <button
+                    key={label}
+                    onClick={() => setBActive(label)}
+                    className={`text-xs px-3 py-1 rounded cursor-pointer ${
+                      Bactive === label
+                        ? "bg-white text-[var(--primary-color)]"
+                        : "bg-gray-200 text-gray-500"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
           <div className="h-60">
@@ -161,20 +188,24 @@ const DashboardTab = () => {
       {/* Acquisition Funnel Section */}
       <div className="bg-white p-6 rounded-lg shadow mb-6">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-medium">Acquisition Funnel</h2>
+          <h2 className="text-lg text-gray-700 font-medium">
+            Acquisition Funnel
+          </h2>
           <div className="bg-[var(--primary-color)] text-white px-4 py-2 rounded-full">
             12/07/2024 - 01/07/2025
           </div>
         </div>
-        <p className="text-gray-500 mb-4 text-center">
+        <p className="text-gray-400 mb-4 text-center">
           Member acquisition data was not found between the selected dates.
         </p>
-        <p className="text-gray-500 mb-4 text-center">
+        <p className="text-gray-400 mb-4 text-center">
           When you add new members, mark the channel through which they found
           your gym at the bottom of the form.
         </p>
-        <h3 className="text-lg font-medium">Latest Referrals</h3>
-        <p className="text-gray-500 text-center">No referrals have been made yet.</p>
+        <h3 className="text-lg font-medium text-gray-700">Latest Referrals</h3>
+        <p className="text-gray-400 mt-20 text-center">
+          No referrals have been made yet.
+        </p>
       </div>
     </div>
   );

@@ -10,6 +10,14 @@ Chart.register(annotationPlugin);
 const tab = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedOption, setSelectedOption] = useState("day");
+  const [total, setTotal] = useState(670);
+
+  const [revenue, setRevenue] = useState({
+    Memberships: 635,
+    "Point-of-sale": 540,
+    Pending: 720,
+    "Per Member": 400,
+  });
 
   //  Sample attendance data
   const attendanceData = {
@@ -35,7 +43,7 @@ const tab = () => {
         data: [
           120, 200, 130, 80, 40, 100, 180, 90, 150, 110, 170, 140, 200, 350,
         ],
-        backgroundColor: "#2196F3",
+        backgroundColor: "#04668d",
         borderRadius: 10,
         barThickness: 8,
       },
@@ -136,17 +144,18 @@ const tab = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
           <div className="bg-[var(--box-color)] p-6 rounded-lg shadow-md">
             <div className="text-gray-500">Total</div>
-            <div className="text-xl m-5 font-medium">
-              ZMK <span className="font-medium text-4xl">635 </span>{" "}
+            <div className="m-5 text-xl  font-medium">
+              ZMK <span className="font-medium text-4xl">{total}</span>
             </div>
           </div>
           {/* Revenue Chart */}
           <div className="bg-white p-6 rounded-lg shadow-md ">
             <div className="flex justify-between items-center ">
               <div className="text-gray-600 font-medium ml-3">Revenue</div>
+              {/* day, week, month */}
               <div className="relative inline-block">
                 <select
-                  className="bg-white   text-gray-600 px-4 pr-8   focus:outline-none focus:ring-2 focus:ring-white"
+                  className="bg-white   text-gray-600 px-4 pr-8 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white"
                   value={selectedOption}
                   onChange={(e) => setSelectedOption(e.target.value)}
                 >
@@ -164,21 +173,18 @@ const tab = () => {
           </div>
         </div>
 
-        {/* Revenue Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
-          {["Memberships", "Point-of-sale", "Pending", "Per Member"].map(
-            (item, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-lg shadow-md text-center"
-              >
-                <div className="text-gray-500">
-                  ZMK <span className="text-2xl">635</span>{" "}
-                </div>
-                <div className="text-[var(--primary-color)]">{item}</div>
+          {Object.entries(revenue).map(([key, value]) => (
+            <div
+              key={key}
+              className="bg-white p-6 rounded-lg shadow-md text-center"
+            >
+              <div className="text-gray-700 ">
+                ZMK <span className="text-3xl ml-1">{value}</span>
               </div>
-            )
-          )}
+              <div className="text-[var(--primary-color)]">{key}</div>
+            </div>
+          ))}
         </div>
 
         {/* Revenue Growth Table */}

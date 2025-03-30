@@ -3,10 +3,13 @@ import { Bar } from "react-chartjs-2";
 import { Chart } from "chart.js";
 import annotationPlugin from "chartjs-plugin-annotation";
 import "chart.js/auto";
+import { useState } from "react";
 
 Chart.register(annotationPlugin);
 
 const GrowthTab = () => {
+  const [selectedOption, setSelectedOption] = useState("day");
+
   //  Sample attendance data
   const attendanceData = {
     labels: [
@@ -31,7 +34,7 @@ const GrowthTab = () => {
         data: [
           120, 200, 130, 80, 40, 100, 180, 90, 150, 110, 170, 140, 200, 250,
         ],
-        backgroundColor: "#2196F3",
+        backgroundColor: "#04668d",
         borderRadius: 10,
         barThickness: 8,
       },
@@ -107,28 +110,47 @@ const GrowthTab = () => {
     },
   };
 
+  const [stats, setStats] = useState({
+    visitors: 635,
+    frozen: 540,
+    cancelled: 720,
+  });
+
+  const [active, setActive] = useState("Day");
+  const data = [
+    { label: "Scheduled", value: 100.0 },
+    { label: "Paid", value: 250.5 },
+    { label: "Overdue", value: 75.25 },
+  ];
+
   return (
     <div className="bg-gray-100 ">
       <div className=" mx-auto">
         {/* Active Members Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-          <div className="bg-[var(--box-color)] p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-medium mb-2">Active Members</h2>
-            <p className="text-4xl font-bold">0</p>
+          <div className="bg-[var(--box-color)] p-10 rounded-lg shadow-md">
+            <h2 className="text-xl font-medium  mb-4">Active Members</h2>
+            <p className="text-4xl font-bold">10</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <div className="flex justify-between items-center mb-2">
               <h2 className="text-xl font-medium">New Members</h2>
-              <div className="flex">
-                <button className="bg-blue-100 text-[var(--primary-color)] px-3 py-1 rounded-md">
-                  Day
-                </button>
-                <button className="bg-white text-[var(--primary-color)] px-3 py-1 rounded-md ml-2">
-                  Week
-                </button>
-                <button className="bg-white text-[var(--primary-color)] px-3 py-1 rounded-md ml-2">
-                  Month
-                </button>
+              <div className="bg-[var(--box-color)] p-2 rounded-lg shadow-md">
+                <div className="flex space-x-2">
+                  {["Day", "Week", "Month"].map((label) => (
+                    <button
+                      key={label}
+                      onClick={() => setActive(label)}
+                      className={`text-xs px-3 py-1 rounded cursor-pointer ${
+                        active === label
+                          ? "bg-white text-[var(--primary-color)]"
+                          : "bg-gray-200 text-gray-500"
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -141,20 +163,16 @@ const GrowthTab = () => {
           </div>
         </div>
 
-        {/* Visitors, Frozen, Cancelled Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 ">
-          <div className="bg-[var(--box-color)] p-6 rounded-lg shadow-md text-center">
-            <p className="text-2xl font-bold">635</p>
-            <p className="text-[var(--primary-color)]">Visitors</p>
-          </div>
-          <div className="bg-[var(--box-color)] p-6 rounded-lg shadow-md text-center">
-            <p className="text-2xl font-bold">635</p>
-            <p className="text-[var(--primary-color)]">Frozen</p>
-          </div>
-          <div className="bg-[var(--box-color)] p-6 rounded-lg shadow-md text-center">
-            <p className="text-2xl font-bold">635</p>
-            <p className="text-[var(--primary-color)]">Cancelled</p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+          {Object.entries(stats).map(([key, value]) => (
+            <div
+              key={key}
+              className="bg-[var(--box-color)] p-6 rounded-lg shadow-md text-center"
+            >
+              <p className="text-2xl font-bold">{value}</p>
+              <p className="text-[var(--primary-color)] capitalize">{key}</p>
+            </div>
+          ))}
         </div>
 
         {/* Member Growth Section */}
@@ -162,9 +180,18 @@ const GrowthTab = () => {
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-xl font-semibold">Member Growth</h2>
             <div className="relative">
-              <button className="bg-white text-gray-600 px-3 py-1 rounded-md">
-                Month <i className="fas fa-chevron-down ml-1"></i>
-              </button>
+              {/* day, week, month */}
+              <div className="relative inline-block">
+                <select
+                  className="bg-white   text-gray-600 px-4 pr-8 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white"
+                  value={selectedOption}
+                  onChange={(e) => setSelectedOption(e.target.value)}
+                >
+                  <option value="day">Day</option>
+                  <option value="week">Week</option>
+                  <option value="month">Month</option>
+                </select>
+              </div>
             </div>
           </div>
           {/* Graph Section */}

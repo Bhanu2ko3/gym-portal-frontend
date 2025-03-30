@@ -1,11 +1,16 @@
 "use client";
 
 import React from "react";
-import { Bar } from "react-chartjs-2";
 import { useState } from "react";
-import "chart.js/auto";
+import annotationPlugin from "chartjs-plugin-annotation";
 import Button from "../../../components/Button"; // Adjust this based on your project structure
+import { Bar } from "react-chartjs-2";
+import { Chart } from "chart.js";
+import "chart.js/auto";
 
+Chart.register(annotationPlugin);
+
+//  Sample attendance data
 const attendanceData = {
   labels: [
     "Day 1",
@@ -26,52 +31,79 @@ const attendanceData = {
   datasets: [
     {
       label: "Attendance",
-      data: [120, 200, 130, 80, 40, 100, 180, 90, 150, 110, 170, 140, 200, 350],
-      backgroundColor: "#2196F3",
+      data: [120, 200, 130, 80, 40, 100, 180, 90, 150, 110, 170, 140, 200, 250],
+      backgroundColor: "#04668d",
       borderRadius: 10,
-      barThickness: 12,
+      barThickness: 8,
     },
   ],
 };
 
+// Chart options (Fix annotations & improve styles)
 const options = {
   responsive: true,
   maintainAspectRatio: false,
   scales: {
     x: {
       grid: {
-        display: true,
-        color: "white",
-        borderDash: [5, 5], // Dashed grid lines
-        borderWidth: 1,
+        display: true, // Ensure grid is enabled for the X-axis
+        color: "white", // Lighter gray color for grid lines
+        borderDash: [5, 5], // Set the dash pattern for the X-axis grid
+        borderWidth: 1, // Line width for the grid
       },
       ticks: {
-        color: "white",
-        font: { size: 14, weight: "bold", family: "Arial" },
+        color: "white", // Color of the ticks (labels)
+        font: {
+          size: 14,
+          weight: "bold",
+          family: "Arial",
+        },
       },
     },
     y: {
       grid: {
-        color: "#D3D3D3",
-        borderDash: [4, 4],
-        borderWidth: 1,
+        color: "#D3D3D3", // Softer gray for grid lines
+        borderDash: [4, 4], // Dashed lines for the Y-axis grid
+        borderWidth: 1, // Line width for the grid
       },
       ticks: {
-        color: "#444",
-        font: { size: 14, weight: "bold", family: "Arial" },
-        stepSize: 100,
+        color: "#444", // Color of the ticks (labels)
+        font: {
+          size: 14,
+          weight: "bold",
+          family: "Arial",
+        },
+        stepSize: 100, // More precise Y-axis steps
       },
     },
   },
+
   plugins: {
+    title: {
+      display: true,
+      font: { size: 18, weight: "bold" },
+      color: "#333",
+      padding: 15,
+    },
     legend: { display: false },
     tooltip: {
       enabled: true,
       backgroundColor: "rgba(0,0,0,0.8)",
       titleColor: "#FFF",
       bodyColor: "#FFF",
-      padding: 10,
+      padding: 5,
       displayColors: false,
+    },
+    annotation: {
+      annotations: attendanceData.datasets[0].data.map((value, index) => ({
+        type: "point",
+        xValue: index,
+        yValue: value,
+        backgroundColor: "#000", // Black dot
+        borderColor: "#FFF", // White border
+        borderWidth: 2, // Border thickness
+        radius: 7, // Dot size
+      })),
     },
   },
 };
@@ -89,7 +121,9 @@ const OverviewTab = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
           <div className="bg-[var(--box-color)] p-5 rounded-lg shadow-md">
-            <p className="text-gray-600 font-semibold text-lg ml-2 mb-4">Totals</p>
+            <p className="text-gray-600 font-semibold text-lg ml-2 mb-4">
+              Totals
+            </p>
             <div className="grid grid-cols-3 gap-4">
               {data.map((item, index) => (
                 <div key={index} className="flex flex-col items-center">
@@ -111,6 +145,7 @@ const OverviewTab = () => {
           <div className="bg-white p-4 rounded-lg shadow-md col-span-2">
             <div className="flex justify-between items-center mb-4">
               <span className="text-gray-700 ml-3">Revenue</span>
+              {/*  */}
               <div className="bg-[var(--box-color)] p-2 rounded-lg shadow-md">
                 <div className="flex space-x-2">
                   {["Day", "Week", "Month"].map((label) => (

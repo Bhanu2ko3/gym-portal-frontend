@@ -2,11 +2,15 @@ import React from "react";
 import { Bar } from "react-chartjs-2";
 import { Chart } from "chart.js";
 import annotationPlugin from "chartjs-plugin-annotation";
-import "chart.js/auto"; 
+import "chart.js/auto";
+import { useState } from "react";
 
 Chart.register(annotationPlugin);
 
 const Dashboard = () => {
+  const [selectedOption, setSelectedOption] = useState("day");
+  const [stats, setStats] = useState([635, 540, 720]);
+
   //  Sample attendance data
   const attendanceData = {
     labels: [
@@ -123,7 +127,9 @@ const Dashboard = () => {
                   key={index}
                   className="bg-gray-100 p-4 rounded-lg flex-1 text-center transition"
                 >
-                  <p className="text-3xl font-bold text-gray-800">635</p>
+                  <p className="text-3xl font-bold text-gray-800">
+                    {stats[index]}
+                  </p>
                   <p className="text-[var(--primary-color)]">{label}</p>
                 </div>
               )
@@ -136,7 +142,7 @@ const Dashboard = () => {
           <h2 className="text-gray-600 text-lg font-medium text-center">
             Demographics
           </h2>
-          <p className="text-gray-600 text-center mt-10">
+          <p className="text-gray-400 text-center mt-10">
             No demographics data available yet. Add more members!
           </p>
         </div>
@@ -147,15 +153,22 @@ const Dashboard = () => {
         <div className="grid col-auto">
           {/* Title Section */}
           <div className="flex justify-between items-center">
-            <h2 className="text-gray-600 text-lg font-medium">Check-Ins</h2>
+            <h2 className="text-gray-700 text-lg font-medium">Check-Ins</h2>
           </div>
 
           {/* Attendance and Month */}
           <div className="flex justify-between items-center mt-2">
-            <h3 className="text-gray-800 text-2xl font-medium">Attendance</h3>
-            <div className="flex items-center">
-              <p className="text-gray-600 cursor-pointer mr-2">Month</p>
-              <i className="fas fa-chevron-down text-gray-600"></i>
+            <h3 className="text-gray-700 text-xl font-medium">Attendance</h3>
+            <div className="relative inline-block">
+              <select
+                className="bg-white   text-gray-600 px-4 pr-8 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white"
+                value={selectedOption}
+                onChange={(e) => setSelectedOption(e.target.value)}
+              >
+                <option value="day">Day</option>
+                <option value="week">Week</option>
+                <option value="month">Month</option>
+              </select>
             </div>
           </div>
         </div>

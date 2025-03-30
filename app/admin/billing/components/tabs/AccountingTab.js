@@ -195,7 +195,7 @@ const AccountingTab = () => {
             <div className="text-gray-700 font-semibold text-xl ml-3">
               Transactions
             </div>
-            <button className="bg-white border border-gray-300 text-gray-600 hover:bg-gray-200 transition duration-300 py-2 px-6 rounded-full shadow">
+            <button className="bg-white border cursor-pointer border-gray-300 text-gray-600 hover:bg-gray-200 transition duration-300 py-2 px-6 rounded-full shadow">
               Export
             </button>
           </div>

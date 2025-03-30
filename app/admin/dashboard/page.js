@@ -29,7 +29,7 @@ export default function Dashboard() {
 
         {/* Schedule Today Section */}
         <div className="bg-white rounded-lg shadow-md p-4 h-124 ">
-          <h2 className="text-lg ml-2">Schedule Today</h2>
+          <h2 className="text-lg text-gray-700 ml-3">Schedule Today</h2>
           <div className="min-h-80">
             {scheduleItems.length > 0 ? (
               <div>
@@ -49,7 +49,7 @@ export default function Dashboard() {
   {/* Notifications Panel */}
   <div className="w-full lg:w-64 lg:h-150 min-h-80 bg-white mt-6 lg:mr-4 mb-6 shadow-md rounded-lg">
     <div className="p-4 border-b border-gray-200">
-      <h1 className="ml-1 text-lg">Notifications</h1>
+      <h1 className="ml-1 text-gray-700 text-lg">Notifications</h1>
     </div>
     <div className="">
       {notifications.length > 0 ? (

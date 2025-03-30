@@ -33,7 +33,7 @@ const ProductsTab = () => {
             onClick={() => console.log("Clicked!")}
           />
 
-          <button className="bg-white border border-gray-300 hover:bg-gray-200 transition duration-300 text-gray-700 py-2 px-4 rounded-full">
+          <button className="bg-white border cursor-pointer border-gray-300 hover:bg-gray-200 transition duration-300 text-gray-700 py-2 px-4 rounded-full">
             Import Products
           </button>
         </div>
