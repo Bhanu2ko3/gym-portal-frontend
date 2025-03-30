@@ -151,7 +151,7 @@ const Sidebar = ({ onItemClick }) => {
                 <p className="text-xs">@johndoe</p>
               </div>
             </div>
-            <button className="hover:text-gray-500">
+            <button className="hover:text-gray-200 cursor-pointer">
               <FaEllipsisV size={18} />
             </button>
           </div>

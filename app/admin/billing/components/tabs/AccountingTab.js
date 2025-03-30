@@ -168,7 +168,7 @@ const AccountingTab = () => {
         {/* Revenue Chart */}
         <div className="bg-white p-6 rounded-lg shadow-md mb-4">
           <div className="flex justify-between items-center mb-4">
-            <div className="text-gray-600 font-medium ml-3">Revenue</div>
+            <div className="text-gray-700 text-lg font-medium ">Revenue</div>
             <div className="relative inline-block">
               <select
                 className="bg-white   text-gray-600 py-2 px-4 pr-8   focus:outline-none focus:ring-2 focus:ring-white"

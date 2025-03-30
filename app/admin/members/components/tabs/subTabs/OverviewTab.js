@@ -127,7 +127,7 @@ const Dashboard = () => {
                   key={index}
                   className="bg-gray-100 p-4 rounded-lg flex-1 text-center transition"
                 >
-                  <p className="text-3xl font-bold text-gray-800">
+                  <p className="text-3xl  text-gray-800">
                     {stats[index]}
                   </p>
                   <p className="text-[var(--primary-color)]">{label}</p>

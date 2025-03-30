@@ -144,7 +144,7 @@ const OverviewTab = () => {
           {/* Graph Section */}
           <div className="bg-white p-4 rounded-lg shadow-md col-span-2">
             <div className="flex justify-between items-center mb-4">
-              <span className="text-gray-700 ml-3">Revenue</span>
+              <span className="text-gray-700 text-lg font-medium ml-2">Revenue</span>
               {/*  */}
               <div className="bg-[var(--box-color)] p-2 rounded-lg shadow-md">
                 <div className="flex space-x-2">
@@ -175,7 +175,7 @@ const OverviewTab = () => {
         {/* Recent Payments Section */}
         <div className="bg-white p-6 rounded-lg shadow-md h-80">
           <div className="flex justify-between items-center">
-            <span className="text-gray-700 text-lg ml-3">Recent Payments</span>
+            <span className="text-gray-700 font-medium text-lg ml-3">Recent Payments</span>
             <Button
               text="All Payments"
               onClick={() => console.log("Clicked!")}

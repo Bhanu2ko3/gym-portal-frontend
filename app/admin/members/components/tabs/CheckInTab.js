@@ -77,7 +77,7 @@ export default function Widget() {
 
             {/* Check-In Button */}
             <button
-              className="bg-green-700 text-white py-2 px-4 rounded-full w-45 inset-shadow-amber-50 hover:shadow-xl transition-shadow duration-300"
+              className="bg-green-700 cursor-pointer text-white py-2 px-4 rounded-full w-45 inset-shadow-amber-50 hover:shadow-xl transition-shadow duration-300"
               onClick={() => console.log("Final Check-in Code:", checkInCode)}
             >
               Check In <i className="fas fa-arrow-right"></i>

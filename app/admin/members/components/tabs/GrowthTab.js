@@ -129,12 +129,12 @@ const GrowthTab = () => {
         {/* Active Members Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div className="bg-[var(--box-color)] p-10 rounded-lg shadow-md">
-            <h2 className="text-xl font-medium  mb-4">Active Members</h2>
-            <p className="text-4xl font-bold">10</p>
+            <h2 className="text-xl text-gray-700 font-medium  mb-4">Active Members</h2>
+            <p className="text-5xl text-gray-700">10</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <div className="flex justify-between items-center mb-2">
-              <h2 className="text-xl font-medium">New Members</h2>
+              <h2 className="text-xl text-gray-700 font-medium">New Members</h2>
               <div className="bg-[var(--box-color)] p-2 rounded-lg shadow-md">
                 <div className="flex space-x-2">
                   {["Day", "Week", "Month"].map((label) => (
@@ -169,7 +169,7 @@ const GrowthTab = () => {
               key={key}
               className="bg-[var(--box-color)] p-6 rounded-lg shadow-md text-center"
             >
-              <p className="text-2xl font-bold">{value}</p>
+              <p className="text-3xl ">{value}</p>
               <p className="text-[var(--primary-color)] capitalize">{key}</p>
             </div>
           ))}
@@ -178,7 +178,7 @@ const GrowthTab = () => {
         {/* Member Growth Section */}
         <div className="bg-white p-6 rounded-lg shadow-md">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-semibold">Member Growth</h2>
+            <h2 className="text-xl font-medium text-gray-700">Member Growth</h2>
             <div className="relative">
               {/* day, week, month */}
               <div className="relative inline-block">

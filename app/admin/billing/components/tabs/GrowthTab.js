@@ -151,7 +151,7 @@ const tab = () => {
           {/* Revenue Chart */}
           <div className="bg-white p-6 rounded-lg shadow-md ">
             <div className="flex justify-between items-center ">
-              <div className="text-gray-600 font-medium ml-3">Revenue</div>
+              <div className="text-gray-700 text-lg font-medium ">Revenue</div>
               {/* day, week, month */}
               <div className="relative inline-block">
                 <select
@@ -190,7 +190,7 @@ const tab = () => {
         {/* Revenue Growth Table */}
         <div className="bg-white p-6 rounded-lg shadow-md">
           <div className="flex justify-between items-center mb-4">
-            <div className="text-lg font-bold text-gray-700">
+            <div className="text-lg font-medium text-gray-700">
               Revenue Growth
             </div>
             {/* Search */}
